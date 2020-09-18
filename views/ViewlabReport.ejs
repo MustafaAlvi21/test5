@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title><%= title %></title>
+
+  </head>
+  <style>
+
+    /* card */
+    .mrgn{
+        margin: 1rem;
+        min-width: 150px;
+    }
+    .card-img-top {
+        max-width: 150px !important;
+        border-top-left-radius: calc(.25rem - 1px);
+        border-top-right-radius: calc(.25rem - 1px);
+        /* align-items: center; */
+        /* align-content: center; */
+        align-self: center;
+    }
+    p {
+        margin-top: 0;
+        margin-bottom: 0px;
+    }
+    
+    @media(max-width: 769px){
+        .mrgn{
+        margin: 1rem auto;
+    }
+    }
+
+    .filepond--root{
+      width: 250px;
+      min-height: 100px !important;
+    }
+    .search {
+      
+      margin: 50px 0;
+  }
+  @media(max-width:992px){
+    .search {
+      width: 100%;
+      margin: 50px auto;
+
+  }
+  .upload1{
+    margin: 0 auto;
+  }
+  }
+  
+  /* Bootstrap 4 text input with search icon */
+  
+  .has-search .form-control {
+      padding-left: 2.375rem;
+  }
+  
+  @media(max-width: 600px){
+    .has-search .form-control {
+      padding-left: 0;
+  }
+  }
+  .has-search .form-control-feedback {
+      position: absolute;
+      z-index: 2;
+      display: block;
+      width: 2.375rem;
+      height: 2.375rem;
+      line-height: 2.375rem;
+      text-align: center;
+      pointer-events: none;
+      color: #aaa;
+  }
+  .search_btn{
+    background-color: #48A23F;
+      color: white;
+  }
+ 
+    </style>
+ 
+  <body style="margin-left: 30px; font-family: 'Roboto';  background-color: #ffffff">
+    
+
+  
+  
+        
+
+    <div class="row mx-0">
+      <div class="col-lg-9">
+        <div class="search">
+          <!-- Another variation with a button -->
+          <form action="/lab-report/search" method="POST">
+          <div class="input-group">
+            <input type="text" name="searchText" class="form-control" placeholder="Search here">
+            <div class="input-group-append">
+              <button class="btn search_btn" type="submit">
+                <i class="fa fa-search"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+        </div>
+      </div>
+     
+<div class="col-lg-3">
+  <div class="search">
+    <!-- Another variation with a button -->
+      <div class="input-group">
+        <button type="button" class="btn btn-success upload1" style="width: max-content !important;" data-toggle="modal" data-target="#exampleModal">
+    Upload prescribtions    </button> 
+        <!-- <input type="text" name="searchText" class="form-control" placeholder="Search here"> -->
+        <!-- <div class="input-group-append">
+          <button class="btn search_btn" type="submit">
+            <i class="fa fa-search"></i>
+        </div>-->
+      </div>
+    </div>    
+  </button>
+</div>
+     
+</div>
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="    max-width: 330px; margin:auto">
+      <div class="modal-header">
+        <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <div style="width: 300px; margin: 50px; height: 450px; border: 1px solid;display: contents; ">
+          <form action="/lab-report" method="POST">
+            <div class="form-group">
+              <label for="">Title</label>
+              <input type="text" name="title" placeholder="Enter title" required autofocus autocomplete="photo" class="form-control" aria-describedby="emailHelp" >
+              <small id="emailHelp" class="form-text text-muted"> <span style="color: red;">Please upload only images, pfd's are not downloadable</span><br> We'll never share your files with anyone else.</small>
+            </div>
+            <div class="form-group form-check">
+              <label for=""> Image </label>
+              <input type="file" name="cover" class="filepond" required autofocus>
+            </div>
+            <center>
+              <input type="submit" class="btn btn-success" value="Upload">  
+            </center>
+
+          </form>
+        </div>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+      <!-- ------------------------------------------------------------------------------------------------------------ -->
+
+      <div class="container">
+        <br>
+                <div class="row mb-3"> 
+                    <div class="col-lg-6 col-sm-6">
+                        <a onclick="UpcommingAppointments()" style="border: none; background-color: transparent; cursor: pointer;"> <h1 class="appointment1" id="Upcomming-Appointments-btn"  style="display: inline; background-color: #1D9F4D; color: whitesmoke; border-radius: 10px; text-align: center; padding-left: 100px; padding-right: 100px;">Your Uploads</h1> </a>
+                    </div>
+                    <div class="col-lg-6 col-sm-6">
+                        <a onclick="PastAppointments()" style="border: none; background-color: transparent; cursor: pointer;" > <h1 class="appointment1" id="Past-Appointments-btn" style="display: inline; color: gray; border-radius: 10px; text-align: center; padding-left: 100px; padding-right: 100px;">Lab Uploads</h1> </a>
+                    </div>
+                </div>
+            
+                <div id="Upcomming-Appointments">
+                  <div class="row m-3">
+                    <% if(books){  books.forEach(book => { %>
+                        <% if (book.coverImageType !== '' && book.coverImageType !== undefined ) { %>
+                
+                        <div class="mrgn">
+                          <div class="card" style="max-width: 18rem; height: fit-content;">
+                        <% if (book.coverImageType == 'image/png' || book.coverImageType == 'image/jpeg' || book.coverImageType == 'image/jpg') { %>
+                            <img class="card-img-top"  src="<%= book.coverImagePath %>" alt="image" height="150" width="100">
+                        <% } else { %>    
+                            <img class="card-img-top" src="/images/icons8-pdf-96.png" alt="pfd" height="150" width="100">
+                        <% } %>
+                        
+                            <ul class="list-group list-group-flush " style="border-top: groove gray 2px;">
+                                <h5 class="card-title"> <%= book.title %> </h5>
+                              </ul>
+                            <div class="card-body">
+                              <!-- <center>
+                                    <a href="/download/<%= book.coverImagePath %>" class="btn btn-outline-success py-1 px-2 card-link"> Download</a>
+                                </center> -->
+                              </div>
+                            </div>
+                          </div>
+                    <% } %>      
+                    <% } ) } %>      
+                    </div>    
+                
+                </div>
+                        
+                        
+                <div id="Past-Appointments" style="display: none;">
+                  <div class="row m-3">
+                    <% if(data1){ %>
+                      <%  for( var i=0; i< data1.length; i++) { %>
+              
+                        <% if (data1[i].fileType ) {%>
+                        <div class="mrgn">
+                          <div class="card" style="max-width: 18rem; height: fit-content;">
+                        <% if (data1[i].fileType == 'image') { %>
+                            <img class="card-img-top"  src="/upload/<%= data1[i].fileName %>" alt="<%= data1[i].fileName %>" height="150" width="100">
+                        <% } else { %>    
+                            <img class="card-img-top" src="/images/icons8-pdf-96.png" alt="pfd" height="150" width="100">
+                        <% } %>
+                        
+                            <ul class="list-group list-group-flush ">
+                                <p class="card-text"> <%= data1[i].belongsTo %> </p>
+                                <p class="card-text"> <%= data1[i].doctor %> </p>
+                                <p class="card-text"> <%= data1[i].appointmentDate %> </p>
+                              </ul>
+                            <div class="card-body">
+                              <center>
+                                <% if (data1[i].fileType == 'pdf')  { %>
+                                  <a href="/download/<%= data1[i].fileName %>" class="btn btn-outline-success py-1 px-2 card-link"> Download</a>
+                                <% } %>
+                                </center>
+                              </div>
+                            </div>
+                          </div>
+                    <% } %>      
+                    <% } } %>      
+                    </div>    
+                   
+              </div>
+            
+            
+            </div>
+            
+            <script>
+                var Upcomming_Appointments = document.getElementById('Upcomming-Appointments')
+                var Past_Appointments = document.getElementById('Past-Appointments')
+                var Upcomming_Appointments_btn = document.getElementById('Upcomming-Appointments-btn')
+                var Past_Appointments_btn = document.getElementById('Past-Appointments-btn')
+            
+            function UpcommingAppointments(){
+                    document.getElementById('Upcomming-Appointments').style.display = "block";
+                    document.getElementById('Past-Appointments').style.display="none"
+                    document.getElementById('Upcomming-Appointments-btn').style.backgroundColor= '#1D9F4D';
+                    document.getElementById('Upcomming-Appointments-btn').style.color= 'white';
+                    document.getElementById('Past-Appointments-btn').style.backgroundColor= 'transparent';
+                    document.getElementById('Past-Appointments-btn').style.color= 'gray';
+                }
+                
+                function PastAppointments(){
+                        document.getElementById('Upcomming-Appointments').style.display = "none";
+                        document.getElementById('Past-Appointments').style.display="block"
+                        document.getElementById('Past-Appointments-btn').style.backgroundColor= '#1D9F4D';
+                        document.getElementById('Past-Appointments-btn').style.color= 'white';
+                        document.getElementById('Upcomming-Appointments-btn').style.backgroundColor= 'transparent';
+                        document.getElementById('Upcomming-Appointments-btn').style.color= 'gray';
+                }
+            
+            </script>
+            
+            
+            <br> <br>
+  </body>

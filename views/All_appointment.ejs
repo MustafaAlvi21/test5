@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+    <!--     bootstrap      -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!--     Google Font     -->
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> -->
+    <script src="https://use.fontawesome.com/35f2a0b17d.js"></script>
+</head>
+
+<body>       
+<br> <br> <br>
+    <div class="container">
+<br>
+        <div class="row mb-3"> 
+            <div class="col-lg-6 col-sm-6">
+                <a onclick="UpcommingAppointments()" style="border: none; background-color: transparent; cursor: pointer;"> <h1 class="appointment1" id="Upcomming-Appointments-btn"  style="display: inline; background-color: #1D9F4D; color: whitesmoke; border-radius: 10px; text-align: center;">Upcomming Appointments</h1> </a>
+            </div>
+            <div class="col-lg-6 col-sm-6">
+                <a onclick="PastAppointments()" style="border: none; background-color: transparent; cursor: pointer;" > <h1 class="appointment1" id="Past-Appointments-btn" style="display: inline; color: gray; border-radius: 10px; text-align: center;">Past Appointments</h1> </a>
+            </div>
+        </div>
+    
+        <div id="Upcomming-Appointments">
+
+            <%  if(data && data.length > 0) { %>
+                <table class="table table-hover table-responsive">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Hospital</th>
+                            <th scope="col">Doctor</th>
+                            <th scope="col">Disease</th>
+                            <th scope="col">Appointment On</th>
+                            <th scope="col">Booked On</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for (var j = 0; j < data.length; j++) {%>
+                            <%  if(data[j].appointmentStatus == 'not visited' ) { %>
+                                <tr>
+                                    <td><%= j+1 %></td>
+                                    <td> <%= data[j].belongsTo %></td>
+                                    <td><%= data[j].doctor %></td>
+                                    <td><%= data[j].field %></td>
+                                    <td><%= data[j].appointmentDate %></td>
+                                    <td><%= data[j].createdAt %></td>
+                                </tr>
+                                <% } %> 
+                                <% } %>
+                            </tbody>
+                        </table>
+                        <% } else { %>
+                    <h1>No Upcomming Appointments</h1>
+                    <% } %>
+                </div>
+                
+                
+                <div id="Past-Appointments" style="display: none;">
+                    
+                    <%  if(data) { %>
+                        <table class="table table-hover table-responsive">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Hospital</th>
+                                    <th scope="col">Doctor</th>
+                                    <th scope="col">Disease</th>
+                                    <th scope="col">Appointment On</th>
+                        <th scope="col">Booked On</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for (var j = 0; j < data.length; j++) {%>
+                        <%  if(data[j].appointmentStatus == 'visited' || data[j].appointmentStatus == 'cancelled') { %>
+                            <tr>
+                                <td><%= j+1 %></td>
+                                <td style="max-width: 200px;"><%= data[j].belongsTo %></td>
+                                <td style="max-width: 200px;"><%= data[j].doctor %></td>
+                                <td style="max-width: 200px;"><%= data[j].field %></td>
+                                <td style="max-width: 200px;"><%= data[j].appointmentDate %></td>
+                                <td style="max-width: 200px;"><%= data[j].createdAt %></td>
+                            </tr>
+                       <% } %> 
+                    <% } %>
+                </tbody>
+            </table>
+            <% } else { %>
+                <h1>No Appointments History</h1>
+            <% } %>
+
+    <!-- extra data -->
+    <!-- extra end -->
+    </div>
+    
+    
+    </div>
+    
+    <script>
+        var Upcomming_Appointments = document.getElementById('Upcomming-Appointments')
+        var Past_Appointments = document.getElementById('Past-Appointments')
+        var Upcomming_Appointments_btn = document.getElementById('Upcomming-Appointments-btn')
+        var Past_Appointments_btn = document.getElementById('Past-Appointments-btn')
+    
+    function UpcommingAppointments(){
+            document.getElementById('Upcomming-Appointments').style.display = "block";
+            document.getElementById('Past-Appointments').style.display="none"
+            document.getElementById('Upcomming-Appointments-btn').style.backgroundColor= '#1D9F4D';
+            document.getElementById('Upcomming-Appointments-btn').style.color= 'white';
+            document.getElementById('Past-Appointments-btn').style.backgroundColor= 'transparent';
+            document.getElementById('Past-Appointments-btn').style.color= 'gray';
+        }
+        
+        function PastAppointments(){
+                document.getElementById('Upcomming-Appointments').style.display = "none";
+                document.getElementById('Past-Appointments').style.display="block"
+                document.getElementById('Past-Appointments-btn').style.backgroundColor= '#1D9F4D';
+                document.getElementById('Past-Appointments-btn').style.color= 'white';
+                document.getElementById('Upcomming-Appointments-btn').style.backgroundColor= 'transparent';
+                document.getElementById('Upcomming-Appointments-btn').style.color= 'gray';
+        }
+    
+    </script>
+    
+    
+    <br> <br> <br>  <br> <br> <br> 
+    
+    
+    
+                <br> <br> <br>  <br> <br> <br>  <br> <br> <br>  <br> <br> <br>  <br> <br> <br> 
+                    
+</body>
+</html>

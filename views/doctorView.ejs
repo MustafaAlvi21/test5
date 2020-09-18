@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title><%= title %></title>
+      <link rel="stylesheet" href="https://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
+      <script src="https://code.jquery.com/ui/1.9.1/jquery-ui.min.js" integrity="sha256-UezNdLBLZaG/YoRcr48I68gr8pb5gyTBM+di5P8p6t8=" crossorigin="anonymous"></script>
+      <script src="https://code.jquery.com/jquery-1.8.2.min.js" integrity="sha256-9VTS8JJyxvcUR+v+RTLTsd0ZWbzmafmlzMmeZO9RFyk=" crossorigin="anonymous"></script>
+    </head>
+  <style>
+#row1{
+    margin: 50px 10px 50px 50px;
+}
+
+#btn1{
+    background-color: green;
+    color: white;
+    width: 95%;
+}
+#btn1:hover{
+    background-color: white;
+    color: green;
+    border: 1px green solid;
+}
+/* -------------------------- */
+
+/* -------------------------- */
+#img1{
+    max-width: 100%;
+    max-height: 400px;
+}
+#col1{
+    text-align: center;
+}      
+
+@media(max-width: 1100px) {
+    #row1{
+    margin: 10px auto;
+    }
+    #col1{
+        text-align: center;
+    }
+}
+
+@media(max-width: 450px) {
+    #row1{
+    margin: 20px auto;
+    }
+    #col1{
+        margin-bottom: 30px;
+        margin-top: 10px;
+        text-align: center;
+    }
+    #img1{
+        margin: 0px auto;
+    }
+}
+
+/* ------------------------------------- */
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 400px;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* --------------------------- */
+
+.ui-datepicker {
+    /* width: 17em; */
+    padding: .2em .2em 0;
+    /*display: none; */
+}
+
+.ui-widget {
+    font-family: "Roboto";
+    font-size: 13px;
+}
+
+
+.ui-datepicker .ui-datepicker-title {
+    margin: 0 2.3em;
+    line-height: 1.8em;
+    text-align: center;
+}
+user agent stylesheet
+div {
+    display: block;
+}
+.ui-widget-header {
+    border: none; 
+    
+     background: none;
+    background-image :"url(images/ui-bg_highlight-soft_75_cccccc_1x100.png) 50% 50% repeat-x: ";
+    
+    color: #222222/*{fcHeader}*/;
+    font-weight: bold;
+}
+
+</style>
+
+
+<body style="margin-left: 30px; font-family: 'Roboto';  background-color: #ffffff">    
+
+<!-- ----------------------------   hehehe   -------------------------------------------- -->
+
+<div class="row"  id="row1">
+    <div class="col-lg-4 col-md-6 col-sm-12" id="col1">
+        <img src="<%= data.coverImagePath %>" alt="image" id="img1">
+    </div>
+        <div class="col-lg-8 col-md-6 col-sm-12"  id="col2">
+            <div class="row"> 
+                <div class="col"> 
+                    <h1> <%= data.name %> </h1>
+                </div>
+            </div>
+            <div class="row"> 
+                <div class="col"> <h5> <span style="font-weight: 600;"> <%= data.field %> </span> at <span style="font-weight: 600;"> <%= data.belongsTo %> </span> </h5> </div>
+            </div>
+            <div class="row">
+                <div class="col">Timing from <%= data.startTime %>  &nbsp;  To <%= data.endTime %> </div>
+            </div>
+            <div class="row">
+                <div class="col"> <h5> <%= data.gender %> </h5> </div>
+            </div>
+            <div class="row"> 
+                <div class="col">
+                    <h6 style="word-spacing: 7px;"> <%= data.description %> </h6> 
+           </div>
+        </div>
+        <div class="row">
+           <div class="col"> <h5><%= data.days %></h5> </div>
+        </div>
+            <br>  <br>
+        <div class="row" style="position: absolute; bottom:0; margin: 0px auto; width: 90%;" > 
+            <div class="text-center" id="btn" style="margin: 0px  auto; width: 80%;">
+                 <!-- <a href="/<%= data._id %>" class="btn" id="btn1"> Get Appointment  </a> -->
+                 <% if (msg) { %>
+                     <div class="alert alert-success" role="alert">
+                         <%= msg %>
+                        </div>
+                        <% } %> 
+                        
+                        <button class="btn" id="btn1" onclick="login123()" >Get Appointment</button>
+                        
+            </div>
+        </div>     
+        </div>
+    </div>
+    
+    <!-- -----------------------  M o d a l  ---------------------------------- -->
+    
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        
+        <!-- Modal content -->
+  <div class="modal-content" style="width: max-content;">
+      <span class="close">&times;</span>
+      <% if (msg) { %>
+        <form action="/view-doctor/<%= doctor %>" method="POST">
+            <% } else { %> 
+                <form action="/view-doctor/<%= doctor %>" onsubmit="sub()" id="myForm" method="POST">
+                    <% } %> 
+                    <h1 class="mb-2" style="text-align: center;"> Appointment </h1>
+                    <p style="text-align: center;"> Select date fo appointment. </p>
+                    <div class="form-row mx-auto" .style="border: 2px solid Yellow;">
+                        <div class="col-md-10 mb-4 mx-auto mx-auto">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-calendar fa-lg" aria-hidden="true"></i></span>
+                                </div>
+                                <!-- <input type="date" name="date"  class="form-control .is-valid input1" id="validationServerUsername " placeholder="Username" aria-describedby="inputGroupPrepend3" required> -->
+                                <input type="date" name="date" id="myDate" onfocus="myFunction()" min="2000-01-10" max="2050-01-10" class="form-control" required/>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="submit" class="btn btn-outline-success col-10 mx-4" >
+                </form>
+</div>
+</div>
+
+<!-- <p id="login1" style="font-size: 100px;" ><%= loginUser %></p> -->
+<input disabled hidden type="text" style="font-size: 100px;" id="login1" value="<%= loginUser %>" >
+<script>
+    var date = new Date();
+    var currentMonth_min = date.getMonth()+1;
+    var currentMonth_max = date.getMonth()+2;
+    var currentDate = date.getDate();
+    var currentYear = date.getFullYear();
+    var currentYear_max = date.getFullYear();
+
+month1 = date.getMonth()+1
+a= month1.toString()
+month2 = date.getMonth()+2
+ if(month2 == 13){
+ month2 = 1; 
+ currentMonth_max = 1
+ currentYear_max = currentYear + 1;
+ console.log(month2)
+ console.log(currentYear)
+ } 
+b= month2.toString()
+    if (a.length == 1){
+    date1  = currentYear+"-"+'0'+currentMonth_min+"-"+currentDate
+    date2  = date1.toString();
+    }else{
+    date1  = currentYear+"-"+currentMonth_min+"-"+currentDate
+    date2  = date1.toString();
+    }
+
+    if (b.length == 1 ){
+    date3  = currentYear_max+"-"+'0'+currentMonth_max+"-"+currentDate
+    date4  = date3.toString();
+    }else{
+    date3  = currentYear_max+"-"+currentMonth_max+"-"+currentDate
+    date4  = date3.toString();
+    }
+    
+console.log(b + ' b')
+function myFunction() {
+  var x = document.getElementById("myDate").min = date2;
+  var y = document.getElementById("myDate").max = date4;
+}
+function sub(){
+console.log(document.getElementById("myForm").elements[0].value);
+}
+</script>
+
+
+<script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+    
+    // Get the button that opens the modal
+    var btn = document.getElementById("btn1");
+    
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+    
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+
+
+    function login123(){
+    if (document.getElementById('login1').value == undefined || document.getElementById('login1').value == undefined){
+        alert('Login required for appointment.')
+    }else{
+        btn.onclick = function() {
+      modal.style.display = "block";
+    }
+    
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+    
+    }
+    }
+
+    function alert1(){
+        if(document.querySelector('.alert').style.display = 'block'){
+            setTimeout( () =>{
+                document.querySelector('.alert').style.display = 'none'
+            }, 3000 )
+        }
+    }
+    alert1()
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,132 @@
+  <style>
+            .btn1:hover {
+      color: white;
+      background-color: #d9534f;
+    }
+    .btn1 {
+      color: #d9534f;
+      border: 0.5px solid #d9534f;
+      background-color: antiquewhite;
+    }
+
+    body {
+  background-image: url("/images/background-health.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+</style>
+        
+    <!-- ----------------------------   hehehe   -------------------------------------------- -->
+    <body style='font-family: "Roboto";  background-color: #ffffff;'>
+    <!--  s t a r t   o f    f o r m   -->
+    <br> <br>   <br>
+    <div class="mx-auto" >
+      <div class="row mx-auto" >
+        <div class="loginbox mx-auto col-lg-5 col-sm-7 mx-auto" style="background-color: antiquewhite; margin: 15px auto; border-radius: 20px;">
+          <center>
+            <br>
+            <h1>Blood Donation Request </h1>
+          </center>
+                  <form onsubmit="return ValidationEvent()" style="border-top: grey 2px  groove;" action="/donationRequest" id="passwordForm" method="POST">
+                    <% if(msg != ''){ %>
+                      <br>
+                      <div class="alert alert-success alert-dismissible">
+                        <strong>      
+                    <%= msg %>
+                        </strong>
+                    </div>
+                      <% } %>
+                    <br>
+                    <div class="mb-3">
+                      <label for="validationServerUsername">Blood Group</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <!-- <span class="input-group-text" id="inputGroupPrepend3"><span class="glyphicon  glyphicon-star-empty"></span> </span> -->
+                        </div>
+                        <select id="options" class="form-control" name="Blood_Group" style="height: 30px;" required>
+                            <option selected>Select Blood Group</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                          </select>
+                        <div class="invalid-feedback">
+                          Please enter correct password.
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="validationServerUsername">Blood Cell</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <!-- <span class="input-group-text" id="inputGroupPrepend3"><span class="glyphicon glyphicon-envelope"></span> </span> -->
+                        </div>
+                        <input type="text" class="form-control " name="Blood_Cell" placeholder="like: 50, 500, 5000" aria-describedby="inputGroupPrepend3" required>
+                        <div class="invalid-feedback">
+                          Enter category of password.   
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="validationServerUsername">Weight</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <!-- <span class="input-group-text" id="inputGroupPrepend3"><span class="glyphicon glyphicon-envelope"></span> </span> -->
+                        </div>
+                        <input type="text" class="form-control " name="Weight" placeholder="Enter weight in KG" aria-describedby="inputGroupPrepend3" required>
+                        <div class="invalid-feedback">
+                          Enter category of password.   
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="validationServerUsername">Height</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <!-- <span class="input-group-text" id="inputGroupPrepend3"><span class="glyphicon glyphicon-envelope"></span> </span> -->
+                        </div>
+                        <input type="text" class="form-control " name="Height" placeholder="Enter height in cm" aria-describedby="inputGroupPrepend3" required>
+                        <div class="invalid-feedback">
+                          Enter category of password.   
+                        </div>
+                      </div>
+                    </div>
+                    <br>
+                      <div class="col">
+                          <button class="btn1 btn btn-lg btn-block" type="submit" id="submitForm" value="Add categore">S u b m i t</button>
+                      </div>
+                      <br>
+                      <br>
+                    </form>
+                  
+                </div>
+                </div>
+              </div>
+        <!--    e n d   o f   f o r m    -->
+          
+<br> <br> <br>
+ 
+        <script>
+    
+// F o r m     v a l i d a t i o n     O n  s u b m i t    
+    function ValidationEvent(){
+      if(document.querySelector('#options').value !== 'Select Blood Group'){
+        console.log('true')
+        return true;
+      }
+      else{
+        alert('Select valid Blood Group...')
+        return false;
+      }
+    }
+    document.querySelector('body').style.display='block'
+  </script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Responsive sidebar template with sliding effect and dropdown menu based on bootstrap 3">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title><%= title %></title>
+        <!--     bootstrap      -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <!--     Google Font     -->
+        <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> -->
+        <script src="https://use.fontawesome.com/35f2a0b17d.js"></script>
+    
+</head>
+    
+    <!-- ----------------------------   hehehe   -------------------------------------------- -->
+    <body style="font-family: 'Roboto';  background-color: #ffffff">
+
+      <!--         P r o f i l e         -->
+ <div class="container" .style="border: navy 1px solid;">
+  <div class="row" .style="border: goldenrod 1px solid;">
+      <div class="col-sm-8 col-lg-5 mt-4 mx-auto" .style="border: red 1px solid;">
+          <form action="/profile" method="POST" class="pb-1  pt-3" style="background-color: #EBEEEB;  border-radius: 15px;" onsubmit="return ValidationEvent()" >
+              <h2 class="mb-4" style="text-align: center;">Profile</h2>
+              <center style="color: red;">
+                  <%=  msg %>
+              </center>
+             <div class="form-row mx-auto" .style="border: 2px solid Yellow;">
+                  <div class="col-md-10 mb-4 mx-auto mx-auto">
+                      <!-- <label for="validationServerUsername">Confirm Password</label> -->
+                      <div class="input-group">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-user fa-lg" aria-hidden="true"></i></span>
+                          </div>                                                                                                        
+    <input type="text" class="form-control .is-valid input1"  name="Username" id="validationServerUsername " placeholder="Enter Full Name" required  value="<%=  typeof data.Username != 'undefined' ? data.Username : '' %>" >
+    <!-- <div class="invalid-feedback">  
+        Please choose a username.
+      </div> -->
+  </div>
+</div>
+</div>
+<div class="form-row mx-auto">
+<div class="col-md-10 mb-4 mx-auto">
+  <div class="input-group">
+      <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></span>
+      </div>
+      <input type="email" name="email" class="form-control .is-invalid input1" id="validationServerEmail" placeholder="Enter Email" aria-describedby="inputGroupPrepend3" required value="<%= typeof data.email != 'undefined' ? data.email : '' %>">
+      
+  </div>
+</div>
+</div>
+<div class="form-row mx-auto">
+<div class="col-md-10 mb-4 mx-auto">
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-phone fa-lg" aria-hidden="true"></i></span>
+        </div>
+        <input type="tel" name="phone" class="form-control .is-invalid input1" id="validationServerPhone" placeholder="Enter Phone Number" aria-describedby="inputGroupPrepend3" required value="<%= typeof data.phone != 'undefined' ? data.phone : '' %>">
+        <!-- <div class="invalid-feedback">
+            Please choose a Phone.
+        </div> -->
+    </div>
+</div>
+</div>  
+<div class="form-row mx-auto">
+<div class="col-md-10 mb-4 mx-auto">
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-phone fa-lg" aria-hidden="true"></i></span>
+        </div>
+        <input type="tel" name="emeregency_phone"  class="form-control .is-invalid input1" id="validationServerEmeregencyPhone" placeholder="Enter Emeregency\Guardian Phone Number" aria-describedby="inputGroupPrepend3" value="<%= typeof data.emeregency_phone != 'undefined' ? data.emeregency_phone : '' %>">
+        <!-- <div class="invalid-feedback">
+            Please choose a Phone.
+        </div> -->
+    </div>
+</div>
+</div>  
+<div class="form-row mx-auto">
+    <div class="col-md-10 mb-4 mx-auto">
+      <div class="input-group">
+          <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-id-card fa-lg" aria-hidden="true"></i></span>
+          </div>
+          <input type="tel" name="nic" class="form-control .is-invalid input1" id="validationServerNIC" placeholder="Enter CNIC" aria-describedby="inputGroupPrepend3" required value="<%= typeof data.cnic != 'undefined' ? data.cnic : '' %>">
+          
+      </div>
+    </div>
+    </div>
+    
+<div class="form-row mx-auto">
+<div class="col-md-10 mb-4 mx-auto">
+  <div class="input-group">
+      <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-globe fa-lg" aria-hidden="true"></i></span>
+      </div>
+      <input type="text" name="city"  class="form-control .is-invalid input1" id="validationServerEmail" placeholder="Enter City" aria-describedby="inputGroupPrepend3" required value="<%= typeof data.city != 'undefined' ? data.city : '' %>" >
+      
+  </div>
+</div>
+</div>
+<div class="form-row mx-auto">
+<div class="col-md-10 mb-4 mx-auto">
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-calendar fa-lg" aria-hidden="true"></i></span>
+        </div>
+        <input type="date" id="myDate" name="age" class="form-control .is-invalid input1" id="validationServerPhone" placeholder="Enter Date Of Birth" aria-describedby="inputGroupPrepend3" required value="<%= typeof data.dataOfbirth != 'undefined' ? data.dataOfbirth : '' %>" >
+        <!-- <div class="invalid-feedback">
+            Please choose a Phone.
+        </div> -->
+    </div>
+</div>
+</div>  
+
+<center>
+<button class="btn btn-success p-2 w-50  mb-2 mt-2" type="submit">Save Profile</button>
+</center>
+</form>
+<br> <br>
+</div>
+</div>
+</div>
+
+  <!--    e n d   o f   f o r m    -->
+
+
+  <script>
+    function myFunction() {
+      var x = document.getElementById("myDate").value;
+      document.getElementById("demo").innerHTML = x;
+    }
+    </script>
+    
+</body>
+</html>

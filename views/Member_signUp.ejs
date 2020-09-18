@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Responsive sidebar template with sliding effect and dropdown menu based on bootstrap 3">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title><%= title %></title>
+        <!--     bootstrap      -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <!--     Google Font     -->
+        <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> -->
+        <script src="https://use.fontawesome.com/35f2a0b17d.js"></script>
+    
+</head>
+    <style>
+.filepond--root{
+  width: 150px;
+  min-height: 100px !important;
+}
+
+    </style>
+    <!-- ----------------------------   hehehe   -------------------------------------------- -->
+    <body style="font-family: 'Roboto';  background-color: #ffffff">
+
+      <!--         R e g i s t e r         -->
+ <div class="container" .style="border: navy 1px solid;">
+  <div class="row" .style="border: goldenrod 1px solid;">
+      <div class="col-sm-8 col-lg-5 mt-5 mx-auto" .style="border: red 1px solid;">
+          
+          <form class="pb-1" style="background-color: #EBEEEB;  border-radius: 15px;" class="" onsubmit="return ValidationEvent()" action="/member-signup" method="POST" >
+            <br>  
+            <h2 class="mb-4" style="text-align: center;">Member Sign Up</h2>
+              
+
+          <%- include('./partials/messages.ejs') %>
+
+              <div class="form-row mx-auto" .style="border: 2px solid Yellow;">
+                  <div class="col-md-10 mb-4 mx-auto mx-auto">
+                      <!-- <label for="validationServerUsername">Confirm Password</label> -->
+                      <div class="input-group">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-user fa-lg" aria-hidden="true"></i></span>
+                          </div>
+    <input type="text" class="form-control .is-valid input1" name="Username" value="<%= typeof Username != 'undefined' ? Username  : '' %>" placeholder='Enter Hospital Name' aria-describedby="inputGroupPrepend3" required  autofocus>
+    <!-- <div class="invalid-feedback">
+        Please choose a username.
+      </div> -->
+  </div>
+</div>
+</div>
+<div class="form-row mx-auto">
+<div class="col-md-10 mb-4 mx-auto">
+  <div class="input-group">
+      <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></span>
+      </div>
+      <input type="email" name="Email" value="<%= typeof Email != 'undefined' ? Email : '' %>" placeholder='Enter Email' class="form-control .is-invalid input1" id="validationServerEmail"  aria-describedby="inputGroupPrepend3" required autofocus>
+      
+  </div>
+</div>
+</div>
+<div class="form-row mx-auto">
+<div class="col-md-10 mb-4 mx-auto">
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-phone fa-lg" aria-hidden="true"></i></span>
+        </div>
+        <input type="tel" name="phone" value="<%= typeof phone != 'undefined' ? phone : '' %>" placeholder=  'Enter Phone (e.g. 03********* ) ' class="form-control .is-invalid input1" id="validationServerPhone"  aria-describedby="inputGroupPrepend3" required autofocus>
+        <!-- <div class="invalid-feedback">
+            Please choose a Phone.
+        </div> -->
+    </div>
+</div>
+</div>  
+<div class="form-row mx-auto">
+<div class="col-md-10 mb-4 mx-auto">
+  <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+      </div>
+      <input type="password"  name="password" placeholder='Enter Password' class="form-control .is-invalid input1" id="validationServerPassword "  aria-describedby="inputGroupPrepend3" required autofocus>
+      
+  </div>
+</div>
+</div>
+<div class="form-row mx-auto">
+<div class="col-md-10 mb-4 mx-auto">
+  <div class="input-group">
+      <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-id-card fa-lg" aria-hidden="true"></i></span>
+      </div>
+      <!-- <input  type="file" name="image" onchange="readSingleFile(this.files)" class="form-control .is-invalid input1"   aria-describedby="inputGroupPrepend3" autofocus required> -->
+      <!-- <input type="file" class="custom-file-input" name="image" id="file1" onchange="readSingleFile(this.files)" autofocus required> -->
+      
+      <!-- <input type="file" class="form-control" name="file" required> -->
+
+      <input type="file" name="cover" class="filepond" required autofocus style="display: inline-block;">
+
+  </div>
+</div>
+</div>
+
+<!-- <div class="form-row mx-auto">
+  <div class="col-md-10 mb-4 mx-auto">
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-id-card fa-lg" aria-hidden="true"></i></span>
+        </div>
+        <input type="file" name="cover" class="filepond" required autofocus>
+    </div>
+  </div>
+  </div> -->
+  
+<center>
+<button class="btn btn-success p-2 w-50  mb-2 mt-2" type="submit">Submit form</button>
+</center>
+<p class="text-center">Already have an accounnt <a href="/member-login" class="text-success">Sign In</a></p>
+
+</form>
+</div>
+</div>
+</div>
+
+<br>  <br>  <br>  
+  <!--    e n d   o f   f o r m    -->
+</body>
+
+<script>
+  $(document).ready(function(){
+      $("input[type='button']").click(function(){
+          var radioValue = $("input[name='gender']:checked").val();
+          if(radioValue){
+              alert("Your are a - " + radioValue);
+          }
+      });
+  });
+</script>
+</html>

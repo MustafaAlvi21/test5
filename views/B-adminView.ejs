@@ -1,0 +1,97 @@
+  <style>
+        .a1{
+          padding: 10px 100px;
+        }
+        @media only screen and (max-width: 800px) {
+          .a1{
+            padding: 0px;
+            background-color: burlywood;
+          }
+          }
+  .row12{ margin: 10px 50px;  }
+  @media only screen and (max-width: 600px) {
+    .row12{
+      width: 100%;
+      margin: 0px; 
+    }
+    .row11{
+      margin: 0px;
+      width: 100%;
+    }
+  }
+  table td:hover {
+  background-color: #c86060;
+  color: #ffffff;
+  font-weight: bold;
+  
+  box-shadow: #cf3d3c -1px 1px, #cf3d3c -2px 2px, #cf3d3c -3px 3px, #cf3d3c -4px 4px, #cf3d3c -5px 5px, #cf3d3c -6px 6px;
+  transform: translate3d(6px, -6px, 0);
+  
+  transition-delay: 0s;
+      transition-duration: 0.4s;
+      transition-property: all;
+  transition-timing-function: line;
+}
+td{
+  border: 0.2px solid #cf3d3c;
+  background-color: #ffffff;
+color: #cf3d3c;
+}
+
+
+body {
+  background-image: url("/images/background-health.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+</style>
+    
+    <!-- ----------------------------   hehehe   -------------------------------------------- -->
+    <body style="font-family: 'Roboto';  background-color: #ffffff">
+    <center>
+      <br>
+      <br>
+      <h1 style="border-bottom: 1px solid grey; display: inline;">Donors Requests</h1>
+    </center>
+
+    <br>  <br>
+    <div class="row col-11 mx-auto row11">
+      <div class="table row12">
+        <table class="table">
+          <thead class="" style="background-color: #cf3d3c; color: #ffffff;">
+            <tr>
+            <tr>
+              <th> <center> Username  </center> </th>
+              <th> <center> Status   </center> </th>
+              <th> <center> Blood Group  </center> </th>
+              <th> <center> Blood Cell  </center> </th>
+              <th> <center> Edit  </center> </th>
+              <th> <center> Delete  </center> </th>
+            </tr>
+          </thead>
+          <tbody>       
+          <% if(data){
+              data.forEach(function(data){
+              %>
+              <tr>
+                <td> <center> <%= data.Username %>   </center> </td>
+                <td> <center> <%= data.Status %>    </center> </td>
+                <td> <center> <%= data.Blood_Group %>   </center> </td>
+                <td> <center> <%= data.Blood_Cell %>   </center> </td>
+                <td> <center> <a class="btn btn-xs" href="/blood-admin/donors/edit/<%= data._id %>"><i style="color: #cf3d3c;" class="fa fa-edit"></i></a> </center> </td>
+                <td> <center> <a class="btn btn-xs" href="/blood-admin/donors/remove/<%= data.id %>"><i style="color: #cf3d3c;" class="fa fa-trash"></i></a> </center> </td>
+              </tr>
+              <%  })  %>
+              <%  } else { %>
+                  <td> <strong> There is no data yet, add some data. </strong> </td>
+              <%  }  %>
+        </tbody>
+        </table>
+      </div>
+      </div>
+     
+      
+</body>
+</html>

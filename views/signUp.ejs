@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title><%= title %></title>
+  </head>
+  
+    <!-- ----------------------------   hehehe   -------------------------------------------- -->
+    <body style="font-family: 'Roboto';  background-color: #ffffff">
+
+      <!--         R e g i s t e r         -->
+ <div class="container" .style="border: navy 1px solid;">
+  <div class="row" .style="border: goldenrod 1px solid;">
+      <div class="col-sm-8 col-lg-5 mt-5 mx-auto" .style="border: red 1px solid;">
+          
+          <form class="pb-1" style="background-color: #EBEEEB;  border-radius: 15px;" class="" onsubmit="return ValidationEvent()" action="/signUp" method="POST">
+            <br>  
+            <h2 class="mb-4" style="text-align: center;"> Sign Up</h2>
+              
+          <%- include('./partials/messages.ejs') %>
+
+              <div class="form-row mx-auto" .style="border: 2px solid Yellow;">
+                  <div class="col-md-10 mb-4 mx-auto mx-auto">
+                      <!-- <label for="validationServerUsername">Confirm Password</label> -->
+                      <div class="input-group">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-user fa-lg" aria-hidden="true"></i></span>
+                          </div>
+    <input type="text" class="form-control .is-valid input1" name="Username" value="<%= typeof Username != 'undefined' ? Username  : '' %>" placeholder='Enter Full Name' aria-describedby="inputGroupPrepend3" required  autofocus>
+    <!-- <div class="invalid-feedback">
+        Please choose a username.
+      </div> -->
+  </div>
+</div>
+</div>
+<div class="form-row mx-auto">
+<div class="col-md-10 mb-4 mx-auto">
+  <div class="input-group">
+      <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></span>
+      </div>
+      <input type="email" name="Email" value="<%= typeof Email != 'undefined' ? Email : '' %>" placeholder='Enter Email' class="form-control .is-invalid input1" id="validationServerEmail"  aria-describedby="inputGroupPrepend3" required autofocus>
+      
+  </div>
+</div>
+</div>
+<div class="form-row mx-auto">
+<div class="col-md-10 mb-4 mx-auto">
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-phone fa-lg" aria-hidden="true"></i></span>
+        </div>
+        <input type="tel" name="phone" value="<%= typeof phone != 'undefined' ? phone : '' %>" placeholder=  'Enter Phone (e.g. 03********* ) ' class="form-control .is-invalid input1" id="validationServerPhone"  aria-describedby="inputGroupPrepend3" required autofocus>
+        <!-- <div class="invalid-feedback">
+            Please choose a Phone.
+        </div> -->
+    </div>
+</div>
+</div>  
+<div class="form-row mx-auto">
+<div class="col-md-10 mb-4 mx-auto">
+  <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+      </div>
+      <input type="password"  name="password" placeholder='Enter Password' class="form-control .is-invalid input1" id="validationServerPassword "  aria-describedby="inputGroupPrepend3" required autofocus>
+      
+  </div>
+</div>
+</div>
+<div class="form-row mx-auto">
+<div class="col-md-10 mb-4 mx-auto">
+  <div class="input-group">
+      <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-id-card fa-lg" aria-hidden="true"></i></span>
+      </div>
+      <input type="tel" name="nic" value="<%= typeof nic != 'undefined' ? nic : '' %>" placeholder='Enter NIC (e.g. 42***********)' class="form-control .is-invalid input1" id="validationServerNIC"  aria-describedby="inputGroupPrepend3" autofocus required>
+      
+  </div>
+</div>
+</div>
+<div class="form-row mx-auto" .style="border: 2px solid Yellow;">
+  <div class="col-md-10 mb-4 mx-auto mx-auto">
+      <!-- <label for="validationServerUsername">Confirm Password</label> -->
+      <div class="input-group">
+          <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-venus-mars  fa-lg" aria-hidden="true"></i></span>
+          </div>
+          <!-- <li><label id="gender">Sex:</label></li> -->
+          <select class="col" name="gender" id="gender" autofocus required>
+            <option value="">Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+</div>
+</div>
+</div>
+
+<center>
+<button class="btn btn-success p-2 w-50  mb-2 mt-2" type="submit">Submit form</button>
+</center>
+<p class="text-center">Already have an accounnt <a href="/login" class="text-success">Sign In</a></p>
+
+</form>
+</div>
+</div>
+</div>
+
+<br>  <br>  <br>  
+  <!--    e n d   o f   f o r m    -->
+</body>
+
+<script>
+  $(document).ready(function(){
+      $("input[type='button']").click(function(){
+          var radioValue = $("input[name='gender']:checked").val();
+          if(radioValue){
+              alert("Your are a - " + radioValue);
+          }
+      });
+  });
+</script>
+</html>

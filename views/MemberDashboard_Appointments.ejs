@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="description" content="Responsive sidebar template with sliding effect and dropdown menu based on bootstrap 3">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title><%= title %></title>
+          <!--     bootstrap      -->
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+          <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+          <!--     Google Font     -->
+          <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> -->
+          <script src="https://use.fontawesome.com/35f2a0b17d.js"></script>
+          <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+
+          <style>
+            .sc_icon {
+                position: absolute;
+                right: 20px;
+            }
+            
+            .nav-link {
+                color: rgb(137, 138, 154) !important;
+            }
+            
+            .p24 {
+                padding: 24px;
+                background-color: rgb(246, 247, 251);
+                line-height: 40px
+            }
+            
+            .dropdown {
+                position: relative;
+                display: inline-block;
+            }
+            
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                min-width: 100%;
+                border-radius: 5px;
+                z-index: 1;
+            }
+            
+            .dropdown-content:hover {
+                background-color: gray !important;
+            }
+            
+            .dropdown-content:hover a {
+                color: white !important;
+            }
+            
+            .dropdown-content a {
+                color: black;
+                text-decoration: none;
+                display: block;
+            }
+            
+            .dropdown:hover .dropdown-content {
+                display: block;
+                padding: 8px;
+                background-color: #fff;
+            }
+            
+            .tab_box {
+                padding: 20px;
+                background-color: rgb(246, 247, 251);
+            }
+            
+            .tab {
+                padding: 20px;
+                background-color: rgb(255, 255, 255);
+            }
+            
+            table {
+                width: 100%;
+            }
+            
+            table>thead>tr>th {
+                color: rgb(137, 138, 154);
+            }
+            
+            thead {
+                background: rgb(246, 247, 251);
+            }
+            
+            thead th {
+                padding: 16px;
+            }
+            
+            tbody td {
+                padding: 16px;
+            }
+            /*for menu*/
+            
+            @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap');
+            .sidebar {
+                height: 100%;
+                width: 0;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                left: 0;
+                background-color: white;
+                overflow-x: hidden;
+                transition: 0.5s;
+                padding-top: 60px;
+            }
+            
+            .sidebar a {
+                padding: 8px 8px 8px 32px;
+                text-decoration: none;
+                font-size: 15px;
+                color: #454655;
+                display: block;
+                transition: 0.3s;
+                width: 299px;
+            }
+            
+            .sidebar a:hover {
+                color: white;
+                background-color: gray;
+                text-decoration: none;
+                width: 100%;
+            }
+            
+            .sidebar .closebtn {
+                position: absolute;
+                top: 0;
+                right: 25px;
+                font-size: 36px;
+                margin-left: 50px;
+            }
+            
+            .openbtn {
+                font-size: 30px;
+                cursor: pointer;
+                background-color: white;
+                color: #454655;
+                padding: 5px 18px;
+                border: none;
+                border-radius: 5px;
+            }
+            
+            .openbtn:hover {
+                background-color: none;
+                color: rgb(137, 138, 154);
+                border: none;
+            }
+            
+            .openbtn:focus {
+            outline: none !important;
+            }
+            
+            #main {
+                transition: margin-left .5s;
+                padding: 10px;
+            }
+            /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+            
+            @media screen and (max-height: 450px) {
+                .sidebar {
+                    padding-top: 15px;
+                }
+                .sidebar a {
+                    font-size: 18px;
+                }
+                .openbtn {
+                    padding: 7px 10px;
+                    font-size: xx-small;
+                }
+            }
+            
+            */ */ #signIn {
+                background-color: #28A745;
+                color: white;
+                font-weight: 600;
+                margin: 0px 10px;
+                border-radius: 5px;
+                width: 80px;
+                text-align: center;
+            }
+            
+            #signOut {
+                background-color: white;
+                color: #28A745;
+                font-weight: 600;
+                margin: 0px 10px;
+                border-radius: 5px;
+                width: 80px;
+                text-align: center;
+            }
+            
+            #b1 {
+                color: white;
+                border: 1px solid white;
+                background-color: transparent;
+            }
+            
+            .search {
+                width: 600px !important;
+            }
+            
+            @media(max-width: 1100px) {
+                .search {
+                    width: 300px !important;
+                }
+            }
+            
+            @media(max-width: 1190px) {
+                .search {
+                    width: 500px !important;
+                }
+            }
+            
+            .menu_box {
+                width: max-content;
+            }
+            
+            .menu_button {
+                font-size: x-large;
+                text-align: center;
+                display: block;
+                background-color: #F6F7FB; border-radius: 30px;
+                /* border-bottom: 1px solid gray;
+                border-top: 1px solid gray; */
+            }
+            
+            .fsl {
+                font-size: larger;
+            }
+            
+            .dropdown-toggle::after {
+                display: none !important;
+            }
+            
+            .dropdown-menu {
+                min-width: fit-content;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-md navbar-light" id="na">
+                <div id="main">
+                    <button class="openbtn" onclick="openNav()"> ☰ </button>
+                </div>
+
+         
+                <div class="sc_icon">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#"><span class="fsl"> <%= loginUser %> </span><i class="far fa-ellipsis-v"></i></a>
+                            <div class="dropdown-content">
+                                <a href="/logout">Logout</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+    
+    
+            </nav>
+        </header>
+    
+        <!--section 2-->
+        <section>
+            <div class="row p24 mx-0">
+                <div class="col-9 col-lg-11">
+                    <h2>Appointments</h2>
+                </div>
+                <div class="col-3 col-lg-1">
+                    
+                </div>
+            </div>
+        </section>
+        
+        <!--table-->
+        
+        <% if (msg) { %>
+            <div class="alert alert-success pl-5" role="alert">
+                <%= msg %>
+              </div>
+            <% } %>
+
+        <section class="tab_box">
+            <div class="tab">
+            <% if(data && data.length > 0) { %>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Appointment Status</th>
+                            <th>Appointment ID</th>
+                            <th>Patient </th>
+                            <th>Doctor</th>
+                            <th>Specialist</th>
+                            <th>Appointment Date</th>
+                            <th>Diagnosis</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    <% for (var j = 0; j < data.length; j++) {%>
+
+                        <tr>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="far fa-ellipsis-v"></i></button>
+                                     <span>  &nbsp;  <%= data[j].appointmentStatus %> </span>
+                                    <div class="dropdown-menu   " aria-labelledby="dropdownMenuButton">
+                                        <% if (data[j].appointmentStatus == 'visited'){ %> 
+                                            <a class="dropdown-item" href="/member-dashboard/doctor-appointments/<%= doctorId %>/not-visit/<%= data[j]._id %>">Change status to not visited</a>
+                                            <a class="dropdown-item" href="/member-dashboard/doctor-appointments/<%= doctorId %>/cancelled/<%= data[j]._id %>">Cancelled appointment</a>
+                                        <% } else { %>
+                                            <a class="dropdown-item" href="/member-dashboard/doctor-appointments/<%= doctorId %>/visit/<%= data[j]._id %>">Change status to visited</a>
+                                            <a class="dropdown-item" href="/member-dashboard/doctor-appointments/<%= doctorId %>/cancelled/<%= data[j]._id %>">Cancelled appointment</a>
+                                        <% } %>
+                                    </div>
+                                </div>
+                            </td>
+                            <td> <%= data[j]._id %> </td>
+                            <td> <%= data[j].patientName %> </td>
+                            <td> <%= data[j].doctor %> </td>
+                            <td> <%= data[j].field %> </td>
+                            <td> <%= data[j].appointmentDate %> </td>
+                            <td> 
+                                <% if (data[j].appointmentStatus == 'visited'){ %> 
+                                <% if (data[j].fileName !== '' && data[j].fileName !== undefined){ %> 
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="far fa-ellipsis-v"></i></button>
+                                     <span>  &nbsp;  <%= data[j].fileName %> </span>
+                                     <div class="dropdown-menu   " aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="/member-dashboard/doctor-appointments/<%= doctorId %>/upload/<%= data[j]._id %>">Update</a>
+                                    </div>
+                                </div>
+                                    <% } else { %>
+                                    <div class="dropdown">
+                                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="far fa-ellipsis-v"></i></button>
+                                        <span>  &nbsp;  Upload diagnosis </span>
+                                        <div class="dropdown-menu   " aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="/member-dashboard/doctor-appointments/<%= doctorId %>/upload/<%= data[j]._id %>">Upload</a>
+                                        </div>
+                                    </div>
+                                    <% } %>
+                                    <% } %>
+                            </td>
+                        </tr>
+
+                        <% } %>
+                    
+                    </tbody>
+                </table>
+            <% } else { %>
+                <h3>No Appointments </h3>
+            <% } %>
+            </div>
+        </section>
+    
+        <!--     s  i  d  e  b  a  r    -->
+    
+        <div id="mySidebar" class="sidebar">
+            <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a> -->
+            <span class="menu_button">Menu</span>
+            <div class="menu_box">
+                <a href="/member-dashboard"> Dashboard </a>
+                <!-- <a href="#"> All Specialists </a> -->
+                <!-- <a href="#"> Consult Online </a> -->
+            </div>
+        </div>    
+        <!--      s i d e b a r    e n d      -->
+
+        <br>  <br> 
+        <script>
+            function openNav() {
+                if (document.getElementById("mySidebar").style.width == "300px") {
+                    document.getElementById("mySidebar").style.width = "0";
+                    document.getElementById("main").style.marginLeft = "0";
+                } else {
+                    document.getElementById("mySidebar").style.width = "300px";
+                    document.getElementById("main").style.marginLeft = "300px";
+                    document.getElementById("main").style.marginLeft = "300px";
+                }
+            }
+    
+            // function status (){
+            //     var status = document.getElementById('status').value
+            //     var status1 = document.getElementById('status1').value
+            //     var status2 = document.getElementById('status2').value
+            //     if(status == status1 || status == 'completed'){
+            //         document.getElementById("status1").checked = true;
+            //         document.getElementById("status2").checked = false;
+            //     } else {
+            //         document.getElementById("status1").checked = false;
+            //         document.getElementById("status2").checked = true;
+            //     }
+            // }
+            // function closeNav() {
+            //   document.getElementById("mySidebar").style.width = "0";
+            //   document.getElementById("main").style.marginLeft= "0";
+            // }
+        </script>
+    </body>
+    
+    </html>

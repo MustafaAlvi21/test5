@@ -1,0 +1,105 @@
+ <style>
+            .btn1:hover {
+      color: white;
+      background-color: #d9534f;
+    }
+    .btn1 {
+      color: #d9534f;
+      border: 0.5px solid #d9534f;
+      background-color: antiquewhite;
+    }
+
+    
+body {
+  background-image: url("/images/background-health.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+      </style>
+        
+    <!-- ----------------------------   hehehe   -------------------------------------------- -->
+    <body style="font-family: 'Roboto';  background-color: #ffffff">
+
+    <!--  s t a r t   o f    f o r m   -->
+    <br> <br>   <br>
+    <div class="mx-auto" >
+      <div class="row mx-auto" >
+        <div class="loginbox mx-auto col-lg-5 col-sm-7 mx-auto" style="background-color: antiquewhite; margin: 15px auto; border-radius: 20px;">
+                  <center>
+                    <br>
+                  <h1>Update Donation Request </h1>
+                </center>
+                  <form style="border-top: grey 2px  groove;" action="/blood-admin/donors/edit" id="passwordForm" method="POST">
+                    <% if(msg != ''){ %>
+                      <br>
+                      <div class="alert alert-success alert-dismissible">
+                        <strong>      
+                    <%= msg %>
+                        </strong>
+                    </div>
+                      <% } %>
+                    <br>
+
+                    <input type="text" hidden name="id" value="<%= data._id %>">
+
+                    <div class="mb-3">
+                      <label for="validationServerUsername">Status</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <!-- <span class="input-group-text" id="inputGroupPrepend3"><span class="glyphicon glyphicon-user"> </span> </span> -->
+                        </div>
+                        <select style="background-color: white; margin: 5px 0px; border: 0.5px solid; height: 30px;" class="form-control" name="Status" style="height: 30px;">
+                            <option value="Accepted"> Accepted </option>
+                            <option value="Pending" selected> Pending </option>
+                            <option value="Rejected"> Rejected </option>
+                          </select>
+                        <div class="invalid-feedback">
+                          Enter category of password.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="validationServerUsername">Blood Group</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <!-- <span class="input-group-text" id="inputGroupPrepend3"><span class="glyphicon  glyphicon-star-empty"></span> </span> -->
+                        </div>
+                        <p style="width: 100%; background-color: white; margin: 5px 0px; border: 0.5px solid; padding-left: 10px;"><%= data.Blood_Group  %> </p>
+                        <div class="invalid-feedback">
+                          Please enter correct password.
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="validationServerUsername">Blood Cell</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <!-- <span class="input-group-text" id="inputGroupPrepend3"><span class="glyphicon glyphicon-envelope"></span> </span> -->
+                        </div>
+                        <p style="width: 100%; background-color: white; margin: 5px 0px; border: 0.5px solid; padding-left: 10px;"><%= data.Blood_Cell  %> </p>
+                        <div class="invalid-feedback">
+                          Enter category of password.   
+                        </div>
+                      </div>
+                    </div>
+                    <br>
+                      <div class="col">
+                          <button class="btn1 btn btn-lg btn-block" type="submit" value="Add categore">Save Changes</button>
+                      <br>
+                      <br>
+                        </div>
+                    </form>
+              
+                </div>
+                </div>
+              </div>
+        <!--    e n d   o f   f o r m    -->
+ <br>  <br>          
+<script>
+  document.querySelector('body').style.display='block'
+</script>
+</body>
+</html>

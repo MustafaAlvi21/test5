@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="description" content="Responsive sidebar template with sliding effect and dropdown menu based on bootstrap 3">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title><%= title %></title>
+          <!--     bootstrap      -->
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+          <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+          <!--     Google Font     -->
+          <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> -->
+          <script src="https://use.fontawesome.com/35f2a0b17d.js"></script>
+  </head>
+  
+ <style>
+     .row {
+  margin: 0px !important;
+  padding: 0px !important;
+}  
+
+ </style>
+
+ <script>
+$(document).ready(function(){
+             document.querySelector('.navbar-mainbg').style.height="62px"
+     })
+ </script>
+  <!-- ----------------------------   hehehe   -------------------------------------------- -->
+
+      <body style="margin-left: 30px; font-family: 'Roboto';  background-color: #ffffff">
+
+
+        
+        <% if(data1[0]) {%>
+                
+                <div class="row">
+                    <img src="<%= data1[0].coverImagePath %>" alt="logo" style="width: 100%;" height="400">
+                </div>
+                
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="mt-5 mb-4">
+                    <h1 style="display: inline-block;"><%= data1[0].Username %></h1>
+                     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                     <!-- <span class="star"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="13"> -->
+                        <!-- <path d="M9 7.02L9.7 11 6 9.12 2.3 11 3 7.02 0 4.2l4.14-.58L6 0l1.86 3.62L12 4.2z"></path>
+                        </svg></span> -->
+                              <!-- <span class="rating" style="font-size: larger;">4.5/5</span> -->
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <address style="font-size: larger;"> <%= data1[0].address %></address>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h4 style="display: inline-block;">Contact at: </h4> <p style="display: inline-block;"> <%= data1[0].phone %> </p>
+            </div>
+        </div>
+
+    </div>
+    <%  }  %>
+
+<br> <br> 
+<% if (data2.length >0 ) {  %>
+    <h1 style="display: inline-block; margin-left: 90px;">Doctors</h1>
+<%  }  %>
+<br>  <br>
+
+
+<div class="container" >
+    <div class="row" > 
+        <% for (var i = 0; i < data2.length; i++) {%>
+
+
+            <div class="col-md-6 col-sm-11 my-5"> 
+                <div class="row">
+                    <div class="col-3">
+
+                    <%    if (data2[i].coverImageType) {    %>
+                            <img src="<%= data2[i].coverImagePath %>" alt=" <%= data2[i].image %>" height= "150px" width= "120px" >
+                    <%    } else {    %>
+                            <span> <i class="fa fa-user" style="height: 150px; width: 120px; font-size: 150px;"> </i> </span>
+                    <%    }    %>
+
+                    </div>
+                    <div class="col">
+                        <h2> <a href="#"> <%= data2[i].name %> </a></h2>
+                        <p> <%= data2[i].description %> </p>
+                        
+                        <a href="/view-doctor/<%= data2[i]._id %>" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+       
+            <% } %>  
+            <!--     i n n e r   l o o p  e n d s    -->
+        <!--    o u t e r   l o o p   e n d s    -->
+
+
+        </div>
+    </div>
+
+
+    <br>  <br>  <br>
+
+    
+
+    
+</body>
+</html>

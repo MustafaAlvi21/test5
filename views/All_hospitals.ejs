@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title><%= title %></title>
+  </head>
+  
+  <style>
+    /* Styles for wrapping the search box */
+
+.search {
+    width: 50%;
+    margin: 50px auto;
+}
+
+/* Bootstrap 4 text input with search icon */
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+.search_btn{
+  background-color: #48A23F;
+    color: white;
+}
+
+
+.row {
+  margin: 0px !important;
+  /* padding: 0px !important; */
+}  
+
+  </style>
+
+    <!-- ----------------------------   hehehe   -------------------------------------------- -->
+
+      <body>
+
+        <center>
+            <h1 class="mt-5">All Hospitals</h1>
+        </center>
+
+        
+        <div class="search">
+          <!-- Another variation with a button -->
+          <form action="/all-hospitals" method="POST">
+          <div class="input-group">
+            <input type="text" name="searchText" class="form-control" placeholder="Search here">
+            <div class="input-group-append">
+              <button class="btn search_btn" type="submit">
+                <i class="fa fa-search"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+        </div>
+
+
+        <div class="row " style="margin-left: 90px">
+
+        <% if(data){    data.forEach(function(data){ %>
+            <div class="card m-5" style="width: 18rem;">
+              <a href="/view-hospital/<%= data._id %>" >
+                <img src="<%= data.coverImagePath %>" height="200px" class="card-img-top" alt="<%= data.Username %>">
+              </a>
+                <div class="card-body">
+                    <span style="display: flex; justify-content: space-between;"><h5 class="card-title"><%= data.Username %></h5>
+                      <div class="rat">
+                          <span class="star"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="11">
+                            <path d="M9 7.02L9.7 11 6 9.12 2.3 11 3 7.02 0 4.2l4.14-.58L6 0l1.86 3.62L12 4.2z"></path>
+                            </svg></span>
+                    <span class="rating">3.5/5</span>
+                </div>
+                </span>
+                <p class="card-text"> <%= data.address %> </p>
+                <br>
+                <div  style="display: flex; justify-content: center;">
+                 <a href="/view-hospital/<%= data._id %>" style="color: white;"> <button class="btn btn-success"> &nbsp; &nbsp; View  &nbsp; &nbsp;</button> </a> 
+            </div></div>
+            </div>
+            
+            <% })  } %>
+
+
+
+
+
+    </div>
+
+
+    </body>
+    
+    </html>

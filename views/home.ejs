@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">    
+  <head>
+    <title><%= title %></title>
+    
+    </head>
+
+    <style>
+      body {
+    line-height: 1.7;
+    color: #666666;
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #fff;
+}
+
+.mini-header {
+    background-color: #316DC3;
+    line-height: 40px;
+    font-size: 13px;
+}
+
+.social-icons {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+    display: inline-block;
+}
+
+.social-icons li {
+    display: inline-block;
+    margin: 0 12px;
+}
+
+.mini-button-ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.mini-button-ul li {
+    display: inline-block;
+}
+
+.mini-button {
+    background-color: #f5f5f5;
+    color: #427900;
+    padding: 5px 10px;
+    font-size: 11px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.mini-button li {
+    display: inline-block;
+}
+
+.mini-title {
+    text-align: center;
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+    padding-bottom: 0;
+}
+
+.white {
+    color: white;
+}
+
+.wbg {
+    background-color: #25D366;
+}
+
+.main-header {
+    color: #506a85;
+    background-color: #f7f8fa;
+    font-size: 14px;
+}
+
+.nav-menu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: block;
+    float: right;
+    color: #333;
+}
+
+.nav-menu li {
+    display: inline-block;
+    margin: 18px 0px;
+}
+
+.logo {
+    margin-top: 7px;
+    max-height: 52px;
+}
+
+.logo1 {
+    max-height: 52px;
+}
+
+.nav-button {
+    padding: 8px 16px;
+    font-size: 13px;
+    font-family: 'Open Sans', sans-serif;
+    color: black;
+    border-radius: 30px;
+    font-weight: 600;
+}
+
+.nav-button:hover {
+    background-color: #316DC3;
+    color: white !important;
+    text-decoration: none;
+}
+
+.home {
+    padding: 8px 16px;
+    font-size: 13px;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #316DC3;
+    color: white;
+    border-radius: 30px;
+    font-weight: 600;
+}
+
+.home:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.marq {
+    margin: 12px 0;
+    background-color: #316DC3;
+    color: white;
+    padding-bottom: 5px;
+}
+
+.bgintro {
+    background-color: #f7f8fa !important;
+    padding: 60px 0;
+}
+
+.intro-title {
+    color: rgb(95, 95, 95);
+    font-weight: 600;
+    font-family: 'Merriweather', serif;
+}
+
+.duction {
+    color: #427900 !important;
+    font-weight: 600;
+    font-family: 'Merriweather', serif;
+}
+
+.date-color {
+    color: #25D366;
+}
+
+.intro-icon {
+    margin: 0 auto;
+    max-width: 160px;
+    position: relative;
+}
+
+.green-bar1 {
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: #427900;
+    float: left;
+    margin-top: 25px;
+}
+
+.green-bar2 {
+    display: block;
+    width: 40px;
+    height: 2px;
+    float: right;
+    margin-top: 25px;
+    background: #427900
+}
+
+.intro-content {
+    text-align: left;
+    margin-top: 15px;
+    line-height: 1.9;
+}
+
+.intro-des {
+    text-align: justify;
+    font-size: 14px;
+    color: #666666;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.bg-product {
+    background-color: rgb(214, 214, 202) !important;
+    background-image: url(/images/section.jpg);
+    color: white;
+    background-size: cover;
+}
+
+.bg-product img {
+    height: 40px;
+}
+
+.pt-80 {
+    padding-top: 80px;
+}
+
+.pb-80 {
+    padding-bottom: 80px;
+}
+
+.trans {
+    transition: all 0.5s ease;
+}
+
+.product-h2 {
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 3rem;
+    font-family: 'Merriweather', serif;
+    padding-bottom: 5px;
+}
+
+.product-h5 {
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+.bg-silver {
+    background-color: #f7f8fa !important;
+    font-size: 14px;
+    color: #666666;
+    font-family: 'Open Sans', sans-serif;
+    padding: 60px 0;
+}
+
+.doing-box {
+    padding: 30px !important;
+    background-color: #fff;
+    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.16);
+}
+
+.doing-box:hover {
+    box-shadow: 0px 8px 20px 10px rgba(0, 0, 0, 0.16);
+}
+
+.doing-box h4 {
+    margin-top: 20px;
+    font-weight: 600 !important;
+    line-height: 1.42857143;
+    color: rgb(95, 95, 95);
+    font-family: 'Merriweather', serif;
+    font-size: 18px;
+}
+
+.doing-box img {
+    width: 70px;
+}
+
+.mb30 {
+    margin-bottom: 30px;
+}
+
+.mb10 {
+    margin-bottom: 10px;
+}
+
+.mb40 {
+    margin-bottom: 40px;
+}
+
+.mw293 {
+    min-width: 293px;
+}
+
+.navbar-toggler {
+    position: absolute;
+    right: 70px;
+    top: 15px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #333333;
+}
+
+@media (min-width: 768px) {
+    .navbar-collapse {
+        flex-direction: row-reverse;
+    }
+}
+
+@media (max-width: 767px) {
+    .mini-title {
+        line-height: initial;
+    }
+}
+
+@media (max-width: 991px) {
+    .nav-menu {
+        display: inline-grid;
+        float: left;
+    }
+    .nav-button {
+        border-top: solid 1px #f0f0f0;
+        border-radius: 0;
+    }
+    .home {
+        border-radius: 0;
+    }
+    .nav-menu li {
+        display: contents;
+    }
+    .mini-button-ul {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .social-icons {
+        text-align: center;
+    }
+    .mini-title {
+        margin-bottom: 0;
+    }
+    .navbar-collapse {
+        background-color: white;
+    }
+}
+
+.fontopen {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.fs12 {
+    font-size: 12px;
+}
+
+.dropdown-item:hover {
+    background-color: #316DC3;
+    color: white;
+}
+
+.grn {
+    color: #427900 !important;
+}
+
+.ptb60 {
+    padding: 60px 0;
+}
+
+.fc {
+    color: rgb(95, 95, 95);
+}
+
+.fsmerri {
+    font-family: 'Merriweather', serif;
+}
+
+.green-bar {
+    display: block;
+    width: 60px;
+    height: 2px;
+    margin-top: 10px;
+    background: #427900;
+}
+
+.fw600 {
+    font-weight: 600;
+}
+
+.project-box {
+    text-align: left;
+    margin-bottom: 20px !important;
+    padding: 15px !important;
+    border: 1px solid #eeeeee;
+    background-color: #f7f8fa
+}
+
+.project-box:hover {
+    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.16);
+}
+
+.dib {
+    display: inline-block;
+}
+
+.font-15 {
+    font-size: 15px;
+}
+
+.mwgal {
+    max-width: 226px;
+    margin-right: 2px;
+    width: 100%
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.preview1 {
+    display: none;
+    position: relative;
+    top: -90px;
+    color: black;
+    text-align: center;
+}
+
+.preview1 a {
+    color: #fff;
+    padding: 10px;
+    width: 40px;
+    background-color: #316DC3;
+    border-radius: 20px;
+}
+
+.gal-box:hover .mwgal {
+    opacity: 0.5;
+    border: 10px solid rgb(172, 171, 171);
+}
+
+.gal-box:hover .preview1 {
+    display: block;
+}
+
+/* .footer-style {
+    background-color: #48A23F !important;
+    padding-top: 70px;
+    padding-bottom: 40px;
+}
+
+.footer-style a:hover {
+    opacity: 0.7;
+}
+
+.footer-box {
+    color: #bbb;
+    margin-bottom: 30px;
+}
+
+.footer-box>ul {
+    list-style: none;
+    padding-left: 0;
+    text-align: center;
+}
+
+.footer-box ul li {
+    padding-bottom: 5px;
+    padding: 0px 10px 5px;
+    display: inline-block;
+}
+
+.footer-box>ul>li>a {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 17px;
+    text-decoration: none;
+    -webkit-transition: all 250ms 0s ease;
+    transition: all 250ms 0s ease;
+}
+
+.icon-color {
+    color: #427900 !important;
+    margin-right: 5px;
+}
+
+.u-links {
+    border-bottom: 1px solid #444;
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: 20px;
+    font-family: 'Merriweather', serif;
+}
+
+.connect {
+    color: #fff;
+    font-size: 14px;
+    font-family: 'Merriweather', serif;
+}
+
+.footer-box3 {
+    color: #bbb;
+    margin-bottom: 30px;
+}
+
+.mb10 {
+    margin-bottom: 10px;
+}
+
+.social-icons1 {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.social-icons1 li {
+    display: inline-block;
+}
+
+.social-icons-footer {
+    color: #e6e6e6;
+    font-size: 13px;
+    margin-right: 7px;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.mini-footer {
+    background-color: #316DD9 !important;
+    padding: 15px 15px 10px;
+}
+
+.copyright {
+    color: white;
+    font-size: 11px !important;
+    margin: 0;
+} */
+
+.scrollToTop {
+    background: rgba(0, 0, 0, 0.1);
+    bottom: 15px;
+    height: 50px;
+    padding: 2px;
+    position: fixed;
+    right: 15px;
+    text-align: center;
+    text-decoration: none;
+    width: 50px;
+    padding-top: 10px;
+    transition-duration: 0.5s;
+}
+
+.scrollToTop:hover {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+@media (max-width: 980px) {
+    .gallery {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 768px) {
+    .mwgal {
+        max-width: 266px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 532px) {
+    .mwgal {
+        max-width: 236px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .mwgal {
+        max-width: 447px;
+        width: 100%;
+        margin-bottom: 2px;
+        padding: 0 10px;
+    }
+    .preview1 {
+        top: -150px;
+    }
+}
+
+.te_center {
+    text-align: center;
+}
+
+.title {
+    color: black !important;
+    max-width: 32rem;
+    font-size: 1.45vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 26px
+}
+
+.for_dev {
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.for_dev a {
+    text-decoration: none;
+    width: max-content;
+}
+
+.fd_icon {
+    padding: 12px 24px;
+    background-color: #FFF !important;
+    color: #28a745;
+    border: 1px solid #28a745;
+    border-radius: 3px;
+    transition-duration: 0.3s;
+}
+
+.fd_icon:hover {
+    background-color: #28a745 !important;
+    color: #fff;
+}
+
+.fb_icon {
+    padding: 12px 24px;
+    background-color: #28a745;
+    color: #FFF;
+    border: 1px solid #28a745;
+    border-radius: 3px;
+    margin-left: 8px;
+    transition-duration: 0.3s;
+}
+
+.fb_icon:hover {
+    background-color: #fff;
+    color: #28a745;
+}
+
+.db {
+    display: block;
+}
+
+.contain {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.centered {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.centered>h1 {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 4vw;
+    width: max-content;
+    color: black;
+}
+
+@media(max-width: 700px) {
+    .centered>h1 {
+        font-size: 5vw;
+    }
+    .title {
+        font-size: 2.5vw;
+    }
+    .for_dev {
+        font-size: 2vw;
+    }
+    .fd_icon {
+        padding: 8px 16px;
+    }
+    .fb_icon {
+        padding: 8px 16px;
+    }
+}
+
+.calender {
+    background-color: #41b6e6;
+    border-radius: 50%;
+    padding: 25px 18px 17px 18px;
+    /* box-shadow: 0 0 20px 0 #838282; */
+}
+
+.icon_c {
+    color: #FFF;
+}
+
+.icon_md {
+    color: #FFF;
+}
+
+.icon_l {
+    color: #FFF;
+}
+
+.calender:hover {
+    background-color: #fff;
+    border: 1px solid #41b6e6;
+}
+
+.calender:hover .icon_c {
+    color: #41b6e6;
+}
+
+.med {
+    background-color: #f2a900;
+    border-radius: 50%;
+    padding: 25px 18px 17px 18px;
+}
+
+.med:hover {
+    background-color: #fff;
+    border: 1px solid #f2a900;
+}
+
+.med:hover .icon_md {
+    color: #f2a900;
+}
+
+.loc {
+    background-color: #003087;
+    border-radius: 50%;
+    padding: 25px 18px 17px 18px;
+}
+
+.loc:hover {
+    background-color: #fff;
+    border: 1px solid #003087;
+}
+
+.loc:hover .icon_l {
+    color: #003087;
+}
+
+.hospital {
+    background-color: #007396;
+    border-radius: 50%;
+    padding: 25px 18px 17px 18px;
+}
+
+.icon_h {
+    color: #FFF;
+}
+
+.hospital:hover {
+    background-color: #fff;
+    border: 1px solid #007396;
+}
+
+.hospital:hover .icon_h {
+    color: #007396;
+}
+
+.desease {
+    background-color: #739600;
+    border-radius: 50%;
+    padding: 25px 18px 17px 18px;
+}
+
+.icon_d {
+    color: #FFF;
+}
+
+.desease:hover {
+    background-color: #fff;
+    border: 1px solid #739600;
+}
+
+.desease:hover .icon_d {
+    color: #739600;
+}
+
+.consult {
+    background-color: #80225f;
+    border-radius: 50%;
+    padding: 25px 18px 17px 18px;
+}
+
+.icon_co {
+    color: #FFF;
+}
+
+.consult:hover {
+    background-color: #fff;
+    border: 1px solid #80225f;
+}
+
+.consult:hover .icon_co {
+    color: #80225f;
+}
+
+.social {
+    text-align: right;
+}
+
+@media(max-width:992px) {
+    .social {
+        text-align: center;
+    }
+    .logo2 {
+        text-align: center;
+    }
+}
+    </style>
+ 
+ <body>
+    
+    
+    
+        <!--this section is for banner-->
+        <div class="contain">
+            <img src="/images/banner1.PNG" alt="" class="img-fluid">
+            <div class="centered">
+                <h1 class="row text-center db">For Every Care in the World</h1>
+                <p class="title">
+                    Welcome to Pakistan Health Information Center. Advancing health for everyone, every day.</p>
+                <div class="for_dev">
+                    <a href=" " hidden class="fd_icon">For Doctors</a>
+                    <a href=" " hidden class="fb_icon">For Patients</a>
+                </div>
+            </div>
+        </div>
+    
+        <!--introduction section-->
+        <section class="bgintro">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 mx-auto">
+                        <h2 class="text-uppercase mt-0 line-height-1 intro-title text-center">Intro<span class="duction">duction</span></h2>
+                        <div class="intro-icon"><span class="green-bar1"></span><img src="/images/favicon.png" style="margin-left: 26px;" alt=""><span class="green-bar2"></span></div>
+                        <div class="intro-content">
+                            <p class="intro-des animate__fadeInRight animate__fast" id="des">Pakistan Health Information Center was born out of the desegregation of the North Western Health Care Network. These changes were made in order to improve the quality of services and to provide community focused health care. <br><br>    
+                                Pakistan Health Information Center Is one of the best website for those who are facing different types of problems related to health care. PHIC were made in order to improve the quality of services and to provide community focused health care.
+                                <br>Pakistan Health Information Center provides different facilities to the patient. Now you can book your appointment without facing any difficulty just find your doctor and book your appointment. Secondly you can also consult with doctor online in just a click. You can check your medical history related to all hospitals you can download it and also save your history in our platform.
+                                <br>We are dedicated to providing the highest standards of clinical care and providing quality, innovative care in a compassionate manner. The guiding principle has always been to provide the highest quality of service and to meet the needs of the local community.
+                                <br> <br> We are dedicated to providing the highest standards of clinical care and providing quality, innovative care in a compassionate manner. The guiding principle has always been to provide the highest quality of service
+                                and to meet the needs of the local community.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--product section-->
+        <section class="bg-product pt-80 pb-80">
+            <div class="container">
+                <div class="row">
+                    <h3 style="color: black;width: 100%; font-size:28px;" class="text-center">Get a Heart Second Opinion from the Nation’s Best</h3>
+                </div>
+                <div class="row text-center" style="color: rgb(53, 52, 52);">
+                    <p style="width: 100%;font-size:18px; margin-bottom: 30px;">Pakistan Health Information Center is here for you</p>
+                </div>
+                <div class="row"><button type="button" style="padding: .5rem 4rem;" class="btn btn-outline-success mx-auto" hidden>Primary</button></div>
+    
+    
+    
+            </div>
+        </section>
+        <!--this section is for what we are doing-->
+        <section class="bg-silver">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 mb40">
+                        <h2 class="text-uppercase mt-0 line-height-1 intro-title text-center">what we <span class="duction">are doing?</span></h2>
+                        <div class="intro-icon"><span class="green-bar1"></span><img src="images/favicon.png" style="margin-left: 26px;" alt=""><span class="green-bar2"></span></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class=" col-md-6 col-sm-12 col-lg-4">
+                        <div class="doing-box text-center mb30">
+                            <a href="/appointment" class="calender"><i class="fa fa-calendar icon_c fa-2x" aria-hidden="true"></i></a>
+                            <h4>Request Appointment</h4>
+                        </div>
+                    </div>
+                    <div class="  col-md-6 col-sm-12  col-lg-4">
+                        <div class="doing-box text-center mb30">
+                            <a href="/all-doctors" class="med"><i class="fas fa-user-md fa-2x icon_md"></i></a>
+                            <h4>Find a Doctor</h4>
+                        </div>
+                    </div>
+                    <div class=" col-md-6 col-sm-12  col-lg-4">
+                        <div class="doing-box text-center mb30">
+                            <a href="/lab-report" class="loc"><i class="fas fa-map-marker-alt fa-2x icon_l"></i></i></a>
+                            <h4>Lab Report</h4>
+                        </div>
+                    </div>
+    
+                    <div class=" col-md-6 col-sm-12 col-lg-4">
+                        <div class="doing-box text-center mb30">
+                            <a href="/all-hospitals" class="hospital"><i class="fa fa-hospital icon_h fa-2x" aria-hidden="true"></i></a>
+                            <h4>All hospital</h4>
+                        </div>
+                    </div>
+                    <div class="  col-md-6 col-sm-12  col-lg-4">
+                        <div class="doing-box text-center mb30">
+                            <a href="/all--disase" class="desease"><i class="fas fa-disease fa-2x icon_d"></i></a>
+                            <h4>All Deseases</h4>
+                        </div>
+                    </div>
+                    <div hidden class=" col-md-6 col-sm-12 col-lg-4">
+                        <div class="doing-box text-center mb30">
+                            <a href="/online-consult" class="consult"><i class="fas fa-laptop-medical fa-2x icon_co"></i></i></a>
+                            <h4>Consult Online</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--upcomming project-->
+        <section class="ptb60">
+            <div class="container">
+                <div class="row">
+    
+                    <div class="col-md-12 pb-sm-20">
+                        <h3 class="mt-0 grn fsmerri fw600 mb30">Most Common Deseases<span class="green-bar"></span></h3>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 col-md-4">
+                                <div class="project-box">
+                                    <a href="" style="margin-right: 30px;"><img src="/images/Hepatitis.png" alt=""></a>
+                                    <h4 class="fc text-uppercase fsmerri dib font-15 fw600">hepatitis</h4>
+                                </div>
+                            </div>
+    
+                            <div class="col-xs-12 col-sm-6 col-md-4">
+                                <div class="project-box">
+                                    <a href="" style="margin-right: 30px;"><img src="/images/mosquito.png" alt="" width="20px"></a>
+                                    <h4 class="fc text-uppercase fsmerri dib font-15 fw600">Mosquito-borne </h4>
+                                </div>
+                            </div>
+    
+                            <div class="col-xs-12 col-sm-6 col-md-4">
+                                <div class="project-box">
+                                    <a href="" style="margin-right: 30px;"><img src="/images/heart.png" alt="" width="20px"></a>
+                                    <h4 class="fc text-uppercase fsmerri dib font-15 fw600">Ischemic Heart Disease</h4>
+                                </div>
+                            </div>
+    
+    
+                        </div>
+                    </div>
+    
+    
+                </div>
+            </div>
+        </section>
+    
+    
+    
+        <a class="scrollToTop" id="scTop" href="#" style="display: none;"><i class="fas fa-chevron-up" style="color: white;font-size: 25px;"></i></i></a>
+    </body>
+    <script>
+        window.addEventListener('scroll', () => {
+            const scrollable = document.documentElement.scrollHeight - window.innerHeight; //total no of line
+            const scrolled = window.scrollY; //specific no of line where we have ,when scoll it increase
+            console.log(Math.ceil(scrolled))
+            if (Math.ceil(scrolled) > 548) {
+                document.getElementById('scTop').style.display = 'inline';
+            } else {
+                document.getElementById('scTop').style.display = 'none';
+            }
+        });
+    </script>
+    
+    
+    </html>

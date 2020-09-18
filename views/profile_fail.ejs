@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="description" content="Responsive sidebar template with sliding effect and dropdown menu based on bootstrap 3">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title><%= title %></title>
+          <!--     bootstrap      -->
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+          <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+          <!--     Google Font     -->
+          <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> -->
+          <script src="https://use.fontawesome.com/35f2a0b17d.js"></script>
+  </head>
+  
+    <!-- ----------------------------   hehehe   -------------------------------------------- -->
+
+      <body style="font-family: 'Roboto';  background-color: #ffffff">
+
+      <!--  s t a r t   o f   l o g i n   f o r m   -->
+
+  <br>
+
+                <!--         P r o f i l e         -->
+                <div class="container" .style="border: navy 1px solid;">
+                    <div class="row" .style="border: goldenrod 1px solid;">
+                        <div class="col-sm-8 col-lg-5 mt-5 mx-auto" .style="border: red 1px solid;">
+                            <form class="" action='/profile' method="POST" enctype="multipart/form-data">
+                                <h1 class="mb-4" style="text-align: center;">Profile</h1>
+                                <div class="form-row mx-auto" .style="border: 2px solid Yellow;">
+                                    <div class="col-md-10 mb-4 mx-auto mx-auto">
+                                        <!-- <label for="validationServerUsername">Confirm Password</label> -->
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-user fa-lg" aria-hidden="true"></i></span>
+                                                </div>
+                          <input type="file" name="file" class="form-control .is-valid input1" id="validationServerFile " aria-describedby="inputGroupPrepend3" required>
+                          <!-- <div class="invalid-feedback">
+                              Please choose a username.
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="form-row mx-auto">
+                    <div class="col-md-10 mb-4 mx-auto">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-phone fa-lg" aria-hidden="true"></i></span>
+                            </div>
+                            <input type="text" class="form-control .is-invalid input1" id="validationServerPhone" placeholder="Enter Phone Number" aria-describedby="inputGroupPrepend3" required>
+                            <div class="invalid-feedback">
+                                Please choose a Phone.
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- <div class="form-row mx-auto">
+                    <div class="col-md-10 mb-4 mx-auto">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></span>
+                            </div>
+                            <input type="text" class="form-control .is-invalid input1" id="validationServerEmail" placeholder="Enter Email" aria-describedby="inputGroupPrepend3" required>
+                            
+                        </div>
+                    </div>
+                </div> -->
+                <div class="form-row mx-auto">
+                    <div class="col-md-10 mb-4 mx-auto">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-venus-mars fa-lg" aria-hidden="true"></i></span>
+                            </div>
+                            <input type="text" name="gender" class="form-control .is-invalid input1" id="validationServerGender" placeholder="Enter Gender" aria-describedby="inputGroupPrepend3" required>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row mx-auto">
+                    <div class="col-md-10 mb-4 mx-auto">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-location-arrow fa-lg" aria-hidden="true"></i></span>
+                            </div>
+                            <input type="text" name="city" class="form-control .is-invalid input1" id="validationServerCity" placeholder="Enter City" aria-describedby="inputGroupPrepend3" required>                            
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row mx-auto">
+                    <div class="col-md-10 mb-4 mx-auto">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend3"><i class="fa fa-calendar fa-lg" aria-hidden="true"></i></span>
+                            </div>
+                            <input type="text" name="age" class="form-control .is-invalid input1" id="validationServerAge" placeholder="Enter Age" aria-describedby="inputGroupPrepend3" required>
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="form-row mx-auto">
+                    <div class="col-md-10 mb-4 mx-auto">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend3"><img src="height.png" alt="height icon" width="18px" height="30px"></span>
+                            </div>
+                            <input type="text" class="form-control .is-invalid input1" id="validationServerHeight" placeholder="Enter Height in feet" aria-describedby="inputGroupPrepend3" required>
+                            
+                        </div>
+                    </div>
+                </div> -->
+                <!-- <div class="form-row mx-auto">
+                    <div class="col-md-10 mb-4 mx-auto">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend3"><img src="weight.png" alt="height icon" width="18px" height="30px"></span>
+                            </div>
+                            <input type="text" class="form-control .is-invalid input1" id="validationServerWeight" placeholder="Enter Weight in Kg" aria-describedby="inputGroupPrepend3" required>
+                            
+                        </div>
+                    </div>
+                </div> -->
+                <center>
+                    <button class="btn btn-success p-2 w-50  mb-2 mt-2" type="submit">Save Profile</button>
+                </center>
+                      <!-- <p class="text-center">Already have an accounnt <a href ="" class="text-success">Save Profile</a></p> -->
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+    </body>
+</html>
+    

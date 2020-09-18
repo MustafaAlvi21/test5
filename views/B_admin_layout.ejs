@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <!-- <link rel="shortcut icon" href="public\favicon.PNG"> -->
+  <!-- <link rel="icon" href="public\favicon.PNG" type="image/jpg"> -->
+  <link rel="icon" href="../images/logo.PNG">
+  
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  
+  <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> -->
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" id="favicon" href="/Includes/BCH/images/favicon.ico">
+  <script src="https://kit.fontawesome.com/00c6b4b077.js" crossorigin="anonymous"></script>
+
+  <!--              j q u e r y                   -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  
+  <!--              F i l e p o n d              -->
+  <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
+  <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
+  <script defer src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+  <script defer src="https://unpkg.com/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.js"></script>
+  <script defer src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>
+  <script defer src="https://unpkg.com/filepond/dist/filepond.js"></script>
+  <script defer src="/javascripts/fileUpload.js"></script>
+</head>
+
+    <style>
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body{
+	font-family: 'Roboto', sans-serif;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+i {
+	margin-right: 10px;
+}
+/*----------multi-level-accordian-menu------------*/
+.navbar{
+  padding: 0px !important;
+}
+.navbar-logo{
+	padding: 15px;
+	color: #fff;
+}
+.navbar-mainbg{
+	background-color: #48A23F;
+	padding: 0px;
+}
+#navbarSupportedContent{
+	overflow: hidden;
+	position: relative;
+}
+#navbarSupportedContent ul{
+	padding: 0px;
+	margin: 0px;
+}
+#navbarSupportedContent ul li a i{
+	margin-right: 10px;
+}
+#navbarSupportedContent li {
+	list-style-type: none;
+	float: left;
+}
+#navbarSupportedContent ul li a{
+	color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    font-size: 15px;
+    display: block;
+    padding: 20px 20px;
+    transition-duration:0.6s;
+	transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    position: relative;
+}
+#navbarSupportedContent>ul>li.active>a{
+	color: #48A23F;
+	background-color: transparent;
+	transition: all 0.7s;
+}
+#navbarSupportedContent a:not(:only-child):after {
+	content: "\f105";
+	position: absolute;
+	right: 20px;
+	top: 10px;
+	font-size: 14px;
+	font-family: "Font Awesome 5 Free";
+	display: inline-block;
+	padding-right: 3px;
+	vertical-align: middle;
+	font-weight: 900;
+	transition: 0.5s;
+}
+#navbarSupportedContent .active>a:not(:only-child):after {
+	transform: rotate(90deg);
+}
+.hori-selector{
+	display:inline-block;
+	position:absolute;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+	transition-duration:0.6s;
+	transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+	background-color: #fff;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	margin-top: 10px;
+}
+.hori-selector .right,
+.hori-selector .left{
+	position: absolute;
+	width: 25px;
+	height: 25px;
+	background-color: #fff;
+	bottom: 10px;
+}
+.hori-selector .right{
+	right: -25px;
+}
+.hori-selector .left{
+	left: -25px;
+}
+.hori-selector .right:before,
+.hori-selector .left:before{
+	content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #48A23F;
+}
+.hori-selector .right:before{
+	bottom: 0;
+    right: -25px;
+}
+.hori-selector .left:before{
+	bottom: 0;
+    left: -25px;
+}
+
+
+
+
+@media (max-width: 991px){
+  #navbarSupportedContent> ul{
+  background-color: white;
+}
+	#navbarSupportedContent ul li a{
+		padding: 12px 30px;
+    color:  rgba(71, 162, 63, 0.568);
+	}
+	.hori-selector{
+		margin-top: 0px;
+		margin-left: 10px;
+		border-radius: 0;
+		border-top-left-radius: 25px;
+		border-bottom-left-radius: 25px;
+    background-color: #48A2;
+    color: white;
+	}
+	.hori-selector .left,
+	.hori-selector .right{
+		right: 10px;
+	}
+	.hori-selector .left{
+		top: -25px;
+		left: auto;
+	}
+	.hori-selector .right{
+		bottom: -25px;
+	}
+	.hori-selector .left:before{
+		left: -25px;
+		top: -25px;
+    background-color: transparent;
+	}
+	.hori-selector .right:before{
+		bottom: -25px;
+		left: -25px;
+    background-color: transparent;
+	}
+
+  .navbar-toggler{
+    float: right !important;
+    position: initial !important;
+  }
+}
+
+#span11{
+  margin-left: 50px;
+  margin-right: 50px;
+  font-size: 15px;
+  color: white
+}
+@media (max-width: 991px){
+  #span11{
+  margin-left: 10px;
+  margin-right: 0px;
+  font-size: 15px;
+  color: white;
+}
+  #span22{
+    display: table;
+    margin: auto;
+    /* min-width: 100px; */
+    text-align: center;
+  }
+} 
+
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap');
+            .sidebar {
+                height: 100%;
+                width: 0;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                left: 0;
+                background-color: white;
+                overflow-x: hidden;
+                transition: 0.5s;
+            }
+            
+            .sidebar a {
+                padding: 8px 8px 8px 32px;
+                text-decoration: none;
+                font-size: 15px;
+                color: #454655;
+                display: block;
+                transition: 0.3s;
+                width: 299px;
+            }
+            
+            .sidebar a:hover {
+                color: white;
+                background-color: gray;
+                text-decoration: none;
+                width: 100%;
+            }
+            
+            .sidebar .closebtn {
+                position: absolute;
+                top: 0;
+                right: 25px;
+                font-size: 36px;
+                margin-left: 50px;
+            }
+            
+            .openbtn {
+                font-size: 20px;
+                cursor: pointer;
+                background-color: transparent;
+                color: #454655;
+                padding: 5px 18px;
+                border: none;
+                border-radius: 5px;
+            }
+            
+            .openbtn:hover {
+                background-color: none;
+                color: white;
+                border: none;
+            }
+            
+            .openbtn:focus {
+            outline: none !important;
+            }
+            
+            #main {
+                transition: margin-left .5s;
+                padding: 10px;
+            }
+            .menu_button {
+                  line-height: 2.6;
+                
+            }
+
+            /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+            
+            @media screen and (max-height: 450px) {
+                .sidebar {
+                    padding-top: 15px;
+                }
+                .sidebar a {
+                    font-size: 18px;
+                }
+                .openbtn {
+                    padding: 7px 10px;
+                    font-size: xx-small;
+                }
+                .menu_button {
+                  line-height: 2.5;
+                font-size: x-large;
+                text-align: center;
+                display: block;
+                background-color: #F6F7FB; border-radius: 30px;
+                /* border-bottom: 1px solid gray;
+                border-top: 1px solid gray; */
+            }
+
+            }
+            /* menu dropdown */
+            .dropdown-toggle::after {
+    float: right !important;
+    margin-top: 10px !important;
+}
+ .btn123:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 0%) !important;
+}
+</style>
+
+<!-- <div> -->
+    <body style="font-family: 'Roboto';">
+
+  <nav class="navbar navbar-expand-lg navbar-mainbg" >
+    <span id="span11">
+                          <!--     s  i  d  e  b  a  r    -->
+                          <div id="main">
+                            <button class="openbtn" onclick="openNav()"> ☰ </button>
+                        </div>
+            
+                          <div id="mySidebar" class="sidebar">
+                            <span class="menu_button" style="background-color: #48A23F; color: White;text-align: center; display: block; font-size: x-large;">Menu</span>
+                            <div class="menu_box">
+                              <a href="/blood-admin"> Home </a>
+                              <a href="/blood-admin/accepters"> Accepters </a>
+                              <a href="/blood-admin/donors"> Donors </a>
+               
+                     </div>
+                        </div>
+                  <!--      s i d e b a r    e n d      -->
+
+    </span>
+    <span id="span22"><div id="span222" style="min-width: 100px;"><a href="/"> <img src="/images/NavLogo.PNG" alt="nav logo" width="110px" height="50px"> </a> </div> </span>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <i class="fas fa-bars text-white"></i>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+          <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
+          <li class="nav-item active">
+              <a class="nav-link" href="javascript:void(0);"><i class="far fa-home"></i><%= title %></a>
+          </li>
+
+          <% if (  typeof loginUser === 'undefined'  ) { %>
+            <li class="nav-item">
+                <a class="nav-link" href="/login"><i class="fa fa-sign-in"></i>Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/signUp"><i class="fa fa-user"></i>Register</a>
+            </li>
+            <% } else { %>
+                <li class="nav-item">                                                                             
+          <a class="nav-link" href="javascript:void(0);"><i class="fa fa-user"></i> <%= typeof loginUser != 'undefined' ? loginUser : '' %> </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/logout"><i class="fa fa-sign-out"></i> Logout</a>
+        </li>
+      <% } %>
+    </ul>
+</div>
+</nav>
+
+</div>
+
+<%- body %>
+
+
+
+<%- include('./partials/footer.ejs') %>
+
+<script>
+  // ---------Responsive-navbar-active-animation-----------
+function test(){
+  var tabsNewAnim = $('#navbarSupportedContent');
+  var selectorNewAnim = $('#navbarSupportedContent').find('li').length;
+  var activeItemNewAnim = tabsNewAnim.find('.active');
+  var activeWidthNewAnimHeight = activeItemNewAnim.innerHeight();
+  var activeWidthNewAnimWidth = activeItemNewAnim.innerWidth();
+  var itemPosNewAnimTop = activeItemNewAnim.position();
+  var itemPosNewAnimLeft = activeItemNewAnim.position();
+  $(".hori-selector").css({
+    "top":itemPosNewAnimTop.top + "px", 
+    "left":itemPosNewAnimLeft.left + "px",
+    "height": activeWidthNewAnimHeight + "px",
+    "width": activeWidthNewAnimWidth + "px"
+  });
+  $("#navbarSupportedContent").on("click","li",function(e){
+    $('#navbarSupportedContent ul li').removeClass("active");
+    $(this).addClass('active');
+    var activeWidthNewAnimHeight = $(this).innerHeight();
+    var activeWidthNewAnimWidth = $(this).innerWidth();
+    var itemPosNewAnimTop = $(this).position();
+    var itemPosNewAnimLeft = $(this).position();
+    $(".hori-selector").css({
+      "top":itemPosNewAnimTop.top + "px", 
+      "left":itemPosNewAnimLeft.left + "px",
+      "height": activeWidthNewAnimHeight + "px",
+      "width": activeWidthNewAnimWidth + "px"
+    });
+  });
+}
+$(document).ready(function(){
+  setTimeout(function(){ test(); });
+});
+$(window).on('resize', function(){
+  setTimeout(function(){ test(); }, 500);
+});
+$(".navbar-toggler").click(function(){
+  setTimeout(function(){ test(); });
+});
+
+
+
+
+function openNav() {
+                if (document.getElementById("mySidebar").style.width == "300px") {
+                    document.getElementById("mySidebar").style.width = "0";
+                    document.getElementById("main").style.marginLeft = "0";
+                } else {
+                    document.getElementById("mySidebar").style.width = "300px";
+                    document.getElementById("main").style.marginLeft = "300px";
+                    document.getElementById("main").style.marginLeft = "300px";
+                }
+            }
+    
+</script>
+
+
+
+
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');
+        }
+        </script>
+        
+        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        
+        
+</body>
+</html>

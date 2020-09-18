@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        .sc_icon {
+            position: absolute;
+            right: 20px;
+        }
+        
+        .nav-link {
+            color: rgb(137, 138, 154) !important;
+        }
+        
+        .p24 {
+            padding: 24px;
+            background-color: rgb(246, 247, 251);
+            line-height: 40px
+        }
+        
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            min-width: 100%;
+            border-radius: 5px;
+            z-index: 1;
+        }
+        
+        .dropdown-content:hover {
+            background-color: gray !important;
+        }
+        
+        .dropdown-content:hover a {
+            color: white !important;
+        }
+        
+        .dropdown-content a {
+            color: black;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+            padding: 8px;
+            background-color: #fff;
+        }
+        /*for menu*/
+        
+        @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap');
+            .sidebar {
+                height: 100%;
+                width: 0;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                left: 0;
+                background-color: white;
+                overflow-x: hidden;
+                transition: 0.5s;
+                padding-top: 60px;
+            }
+            
+            .sidebar a {
+                padding: 8px 8px 8px 32px;
+                text-decoration: none;
+                font-size: 15px;
+                color: #454655;
+                display: block;
+                transition: 0.3s;
+                width: 299px;
+            }
+            
+            .sidebar a:hover {
+                color: white;
+                background-color: gray;
+                text-decoration: none;
+                width: 100%;
+            }
+                    
+        .sidebar .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+        
+	.openbtn {
+                font-size: 30px;
+                cursor: pointer;
+                background-color: white;
+                color: #454655;
+                padding: 5px 18px;
+                border: none;
+                border-radius: 5px;
+            }
+            
+            .openbtn:hover {
+                background-color: none;
+                color: rgb(137, 138, 154);
+                border: none;
+            }
+        
+        .openbtn:focus {
+            outline: none !important;
+        }
+        
+        #main {
+            transition: margin-left .5s;
+            padding: 10px;
+        }
+        /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+        
+        @media screen and (max-height: 450px) {
+            .sidebar {
+                padding-top: 15px;
+            }
+            .sidebar a {
+                font-size: 18px;
+            }
+            .openbtn {
+                padding: 7px 10px;
+                font-size: xx-small;
+            }
+        }
+        
+        */ */ #signIn {
+            background-color: #28A745;
+            color: white;
+            font-weight: 600;
+            margin: 0px 10px;
+            border-radius: 5px;
+            width: 80px;
+            text-align: center;
+        }
+        
+        #signOut {
+            background-color: white;
+            color: #28A745;
+            font-weight: 600;
+            margin: 0px 10px;
+            border-radius: 5px;
+            width: 80px;
+            text-align: center;
+        }
+        
+        #b1 {
+            color: white;
+            border: 1px solid white;
+            background-color: transparent;
+        }
+        
+        .search {
+            width: 600px !important;
+        }
+        
+        @media(max-width: 1100px) {
+            .search {
+                width: 300px !important;
+            }
+        }
+        
+        @media(max-width: 1190px) {
+            .search {
+                width: 500px !important;
+            }
+        }
+        
+        .menu_box {
+            width: max-content;
+        }
+        
+        .menu_button {
+                font-size: x-large;
+                text-align: center;
+                display: block;
+                background-color: #F6F7FB; border-radius: 30px;
+                /* border-bottom: 1px solid gray;
+                border-top: 1px solid gray; */
+            }
+        
+        .fsl {
+            font-size: larger;
+        }
+        
+        .dropdown-toggle::after {
+            display: none !important;
+        }
+        
+        .dropdown-menu {
+            min-width: fit-content;
+        }
+        
+        input[type=text],
+        select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        input[type=submit] {
+            width: 100%;
+            background-color: #007bff;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        input[type=submit]:hover {
+            background-color: #0068d8;
+        }
+        .create_box {
+            border-radius: 5px;
+            background-color: white;
+            padding: 20px;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-light" id="na">
+            <div id="main">
+                    <button class="openbtn" onclick="openNav()"> ☰ </button>
+                </div>
+
+
+                <div class="sc_icon">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#"><span class="fsl"> <%=  loginUser  %> </span><i class="far fa-ellipsis-v"></i></a>
+                            <div class="dropdown-content">
+                                <a href="/logout">Logout</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+        </nav>
+    </header>
+
+    <!--Form-->
+    <!--section 2-->
+    <section>
+        <div class="row p24 mx-0">
+            <div class="col-12">
+                <h2>Doctors</h2>
+            </div>
+
+        </div>
+    </section>
+    <section style="  padding: 20px; background-color: rgb(246, 247, 251);">
+        <div class="create_box">
+            
+            <% if (msg) { %>
+            <div class="alert alert-success" role="alert">
+                <%= msg %>
+              </div>
+            <% } %>
+
+            <form action="/member-dashboard/update-doctor/" method="POST" >
+            
+                <input type="text" id="fname" name="doctorId" value="<%= doctorId %>" hidden autofocus required>
+            
+                <label for="fname">Name</label>
+                <input type="text" id="fname" name="name" value="<%= data.name %>" autofocus required>
+
+                <label for="lname">Gender</label>
+                <select id="gender" name="gender" value="<%= data.gender %>">
+                    <option value="">Select any one</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                  </select>
+
+                <label for="lname">Description</label>
+                <input type="text" id="lname" name="description" value="<%= data.description %>" autofocus required>
+
+
+                <label for="Field">Field</label>
+                <select id="field" name="field" value="<%= data.field %>" autofocus required>
+                    <option value="Cardiologist">Cardiologist</option>
+                    <option value="Dentist">Dentist</option>
+                    <option value="Dermatologist/Cosmetologist">Dermatologist/Cosmetologist</option>
+                    <option value="Eye Specialist">Eye Specialist</option>
+                    <option value="Gynecologist">Gynecologist</option>
+                    <option value="Hematologist">Hematologist</option>
+                    <option value="Neurologist">Neurologist</option>
+                    <option value="Urologist">Urologist</option>
+                    <option value="Cancer Specialist">Cancer Specialist</option>
+                    <option value="Psychiatrist">Psychiatrist</option>
+                    <option value="Lung Surgeon">Lung Surgeon</option>
+                    <option value="Rheumatologist">Rheumatologist</option>
+                    <option value="Speech Therapist">Speech Therapist</option>
+                    <option value="Sexologist">Sexologist</option>
+                    <option value="Urologist">Urologist</option>
+                </select>
+
+                <!-- <label for="image">Profile pic</label>  <br>
+                <img src="/upload/<%= data.image %>" alt="<%= data.image %>" width="100px"  height="100px">
+                <input class="" type="file" name="image" value="<%= data.image %>" autofocus> -->
+<br> <br>
+                <input type="submit" value="Save" class="submit">
+            </form>
+        </div>
+    </section>
+
+
+    <script>
+
+$(document).ready(()=>{ 
+            $("#field").val('<%= data.field %>'); 
+            $("#gender").val('<%= data.gender %>'); 
+        }); 
+
+
+
+     </script>
+    <!--     s  i  d  e  b  a  r    -->
+
+    <div id="mySidebar" class="sidebar">
+        <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a> -->
+        <span class="menu_button">Menu</span>
+        <div class="menu_box">
+            <a href="/member-dashboard"> Dashboard </a>
+            <!-- <a href="#"> All Specialists </a> -->
+            <!-- <a href="#"> Consult Online </a> -->
+        </div>
+    </div>
+
+
+
+    <!--      s i d e b a r    e n d      -->
+    <script>
+        function openNav() {
+            if (document.getElementById("mySidebar").style.width == "300px") {
+                document.getElementById("mySidebar").style.width = "0";
+                document.getElementById("main").style.marginLeft = "0";
+            } else {
+                document.getElementById("mySidebar").style.width = "300px";
+                document.getElementById("main").style.marginLeft = "300px";
+                document.getElementById("main").style.marginLeft = "300px";
+            }
+        }
+
+        // function closeNav() {
+        //   document.getElementById("mySidebar").style.width = "0";
+        //   document.getElementById("main").style.marginLeft= "0";
+        // }
+    </script>
+</body>
+
+</html>

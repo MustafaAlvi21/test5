@@ -1,0 +1,171 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    /* background-color: mediumblue; */
+}
+body{
+    margin: 0px;
+    padding: 0px;
+    /* color: mediumorchid; */
+}
+div.background{
+    background-image: url(tJzpvn.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.1;
+}
+.input1{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    background-color: rgba(218, 218, 218, 0.473);
+    color: rgb(78, 78, 78);
+    /* border: mediumorchid 2px solid; */
+}
+.input-group-text{
+    background-color: white;
+    border: none;
+}
+.btn-success{
+    border-radius: 10px;
+}
+
+.appointment-details{
+width: 91%;
+}
+.appointment-area{
+align-items: center;
+}
+.appointment-details1{
+text-align: center;
+min-width: 50px;
+}
+
+/* @media (max-width: 768px) {
+.appointment{
+  
+} */
+.appointment-heading {
+  font-size: xx-large;
+}
+.appointment1 {
+  font-size: larger;
+}
+.appointment-user{
+  margin-left: 0px;
+  padding-top: 10%;
+  border-bottom: 1px double;
+  max-width: 50px;
+}
+.appointment-details{
+  min-width: 100px;
+  border-bottom: 1px solid;
+}
+.appointment-area{
+  width: 99%;
+}
+.appointment-details1{
+  width: 100%;
+  /* .border: green dotted 2px; */
+  text-align: start;
+}
+
+
+/* ------------------------------------ */
+
+#wrapper {
+overflow-x: hidden;
+}
+
+#sidebar-wrapper {
+min-height: 100vh;
+margin-left: -15rem;
+-webkit-transition: margin .25s ease-out;
+-moz-transition: margin .25s ease-out;
+-o-transition: margin .25s ease-out;
+transition: margin .25s ease-out;
+}
+
+#sidebar-wrapper .sidebar-heading {
+padding: 0.875rem 1.25rem;
+font-size: 1.2rem;
+}
+
+#sidebar-wrapper .list-group {
+width: 15rem;
+}
+
+#page-content-wrapper {
+min-width: 100vw;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+margin-left: 0;
+}
+
+@media (min-width: 768px) {
+#sidebar-wrapper {
+margin-left: 0;
+}
+
+#page-content-wrapper {
+min-width: 0;
+width: 100%;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+margin-left: -15rem;
+}
+}
+.nav-item{
+margin: 0px 25px;
+}
+.logo{
+height: 50px;
+margin: 1px 0px 0px 30px;
+}
+.search{
+width: 80%;
+margin: 3px 0px 2px 0px;
+}
+.auth-para{
+margin: 3px 0px 2px 0px;
+}
+.btn-outline{
+border: 1px solid gray;
+border-radius: 5px;
+padding: 5px;
+color: gray;
+}
+.btn-outline:hover{
+border: 1px solid gray;
+border-radius: 5px;
+padding: 2px;
+background-color: gray;
+color: white;
+}
+@media (max-width: 576px) { 
+.logo{
+height: 30px;
+margin: 15px 0px 0px 15px;
+}
+.search-btn{
+display: none
+}
+.search{
+margin: 5px 0px 0px 0px;
+width: 100%;
+}
+.or{
+margin: 5px 0px 0px 0px;
+display: none
+}
+.btn-outline{
+border: none;
+border-radius: 5px;
+padding: 2px;
+/* background-color: gray; */
+/* color: gray; */
+}
+};
